@@ -1,6 +1,6 @@
 ![Banner](./Images/carbon_banner_light.png)
 
-![Swift Version](https://img.shields.io/badge/Swift-5.1--5.5-orange?style=flat-square)&nbsp;
+![Swift Version](https://img.shields.io/badge/Swift-5.2--5.5-orange?style=flat-square)&nbsp;
 ![Platforms](https://img.shields.io/badge/platform-ios-lightgray?style=flat-square)&nbsp;
 ![License](https://img.shields.io/badge/license-MIT-black.svg?style=flat-square)&nbsp;
 
@@ -27,7 +27,7 @@ CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can 
 
 | CarbonGraph Stable Version | Required iOS Version | Required Swift Version |
 | --- | --- | --- |
-| 1.1.0 | 9.0 | 5.2 |
+| 1.2.2 | 9.0 | 5.2 |
 
 ### Compatibility
 
@@ -35,10 +35,10 @@ CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can 
 | --- | --- | --- | --- |
 | 11.4 | 5.2 | Catalina 10.15.7 | passing |
 | 12.1 | 5.3 | Catalina 10.15.7 | passing |
-| 12.4 􀃲 | 5.3.2 | Catalina 10.15.7 | passing |
+| 12.4 √ | 5.3.2 | Catalina 10.15.7 | passing |
 | ~~12.5~~ | ~~5.4~~ | ~~Big Sur 11.6~~ | ~~error~~ |
 | ~~12.5.1~~ | ~~5.4.2~~ | ~~Big Sur 11.6~~ | ~~error~~ |
-| 13.0 􀃲 | 5.5 | Big Sur 11.6 | passing |
+| 13.0 √ | 5.5 | Big Sur 11.6 | passing |
 
 ## Installation
 
