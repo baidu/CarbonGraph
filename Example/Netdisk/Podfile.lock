@@ -1,0 +1,57 @@
+PODS:
+  - AppDelegateModule (0.0.2):
+    - HomeModule
+    - MeModule
+  - BasicModule (0.0.2):
+    - CarbonObjC
+  - CarbonCore (1.2.2)
+  - CarbonObjC (1.2.2):
+    - CarbonCore (~> 1.2.2)
+  - FileModule (0.0.2):
+    - BasicModule
+    - CarbonObjC
+  - HomeModule (0.0.2):
+    - BasicModule
+    - CarbonObjC
+    - FileModule
+  - MeModule (0.0.2):
+    - BasicModule
+    - CarbonObjC
+
+DEPENDENCIES:
+  - AppDelegateModule (from `../AppDelegateModule`)
+  - BasicModule (from `../BasicModule`)
+  - CarbonCore (from `../..`)
+  - CarbonObjC (from `../..`)
+  - FileModule (from `../FileModule`)
+  - HomeModule (from `../HomeModule`)
+  - MeModule (from `../MeModule`)
+
+EXTERNAL SOURCES:
+  AppDelegateModule:
+    :path: "../AppDelegateModule"
+  BasicModule:
+    :path: "../BasicModule"
+  CarbonCore:
+    :path: "../.."
+  CarbonObjC:
+    :path: "../.."
+  FileModule:
+    :path: "../FileModule"
+  HomeModule:
+    :path: "../HomeModule"
+  MeModule:
+    :path: "../MeModule"
+
+SPEC CHECKSUMS:
+  AppDelegateModule: 83d7889fdf3f8821077025b319c5fcc69dcaa048
+  BasicModule: 068dc22558583a1d3ea15bc3adc0ce582d56251d
+  CarbonCore: c98b3513a891b772a08565c987701b96d6b51a6b
+  CarbonObjC: 6019c6869c05123909ac54a4d3b5ffaf3eacbc4f
+  FileModule: 49b9bb731d80b1c26832b06e229de7299887dc98
+  HomeModule: bdbf68fe19c3aca079f3c48ac5a54aaf599bb7c2
+  MeModule: 23d6688f684619e470b3ddbd877ad0b138e67adc
+
+PODFILE CHECKSUM: 086e67925edae7f52d7bd666f8cfbecbf7d7ebee
+
+COCOAPODS: 1.10.2

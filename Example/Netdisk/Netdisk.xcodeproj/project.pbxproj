@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64359676222536F600CD5AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64359675222536F600CD5AB9 /* Assets.xcassets */; };
+		64359679222536F600CD5AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64359677222536F600CD5AB9 /* LaunchScreen.storyboard */; };
+		A3B584A82637B9FD00090808 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B584A72637B9FD00090808 /* main.swift */; };
+		D6AA2481605A4E64D4574860 /* Pods_Netdisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96D301211EDCA422F8A050B /* Pods_Netdisk.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D0AA223453F25457B0E2725 /* Pods-Netdisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netdisk.release.xcconfig"; path = "Target Support Files/Pods-Netdisk/Pods-Netdisk.release.xcconfig"; sourceTree = "<group>"; };
+		5F6D8CCF0363656BF6E830A0 /* Pods-Netdisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netdisk.debug.xcconfig"; path = "Target Support Files/Pods-Netdisk/Pods-Netdisk.debug.xcconfig"; sourceTree = "<group>"; };
+		64359669222536F500CD5AB9 /* Netdisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netdisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64359675222536F600CD5AB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64359678222536F600CD5AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6435967A222536F600CD5AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6497B9CE2477A6BC002E2E02 /* AppDelegateModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppDelegateModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6497B9D02477A6BC002E2E02 /* BasicModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BasicModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6497B9D22477A6BC002E2E02 /* Carbon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Carbon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6497B9D42477A6BC002E2E02 /* HomeModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HomeModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6497B9D62477A6BC002E2E02 /* MeModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MeModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A35A5909262EB7B200F626E2 /* Netdisk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Netdisk-Bridging-Header.h"; sourceTree = "<group>"; };
+		A3B584A72637B9FD00090808 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C96D301211EDCA422F8A050B /* Pods_Netdisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netdisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64359666222536F500CD5AB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6AA2481605A4E64D4574860 /* Pods_Netdisk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AE2029679648921718E6857 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F6D8CCF0363656BF6E830A0 /* Pods-Netdisk.debug.xcconfig */,
+				2D0AA223453F25457B0E2725 /* Pods-Netdisk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		64359660222536F500CD5AB9 = {
+			isa = PBXGroup;
+			children = (
+				6435966B222536F500CD5AB9 /* Netdisk */,
+				6435966A222536F500CD5AB9 /* Products */,
+				6435973B2225393E00CD5AB9 /* Frameworks */,
+				1AE2029679648921718E6857 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		6435966A222536F500CD5AB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64359669222536F500CD5AB9 /* Netdisk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6435966B222536F500CD5AB9 /* Netdisk */ = {
+			isa = PBXGroup;
+			children = (
+				64359675222536F600CD5AB9 /* Assets.xcassets */,
+				64359677222536F600CD5AB9 /* LaunchScreen.storyboard */,
+				6435967A222536F600CD5AB9 /* Info.plist */,
+				A35A5909262EB7B200F626E2 /* Netdisk-Bridging-Header.h */,
+				A3B584A72637B9FD00090808 /* main.swift */,
+			);
+			path = Netdisk;
+			sourceTree = "<group>";
+		};
+		6435973B2225393E00CD5AB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6497B9CE2477A6BC002E2E02 /* AppDelegateModule.framework */,
+				6497B9D02477A6BC002E2E02 /* BasicModule.framework */,
+				6497B9D22477A6BC002E2E02 /* Carbon.framework */,
+				6497B9D42477A6BC002E2E02 /* HomeModule.framework */,
+				6497B9D62477A6BC002E2E02 /* MeModule.framework */,
+				C96D301211EDCA422F8A050B /* Pods_Netdisk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64359668222536F500CD5AB9 /* Netdisk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6435967F222536F600CD5AB9 /* Build configuration list for PBXNativeTarget "Netdisk" */;
+			buildPhases = (
+				5EE643B3029338987AEB3CB3 /* [CP] Check Pods Manifest.lock */,
+				64359665222536F500CD5AB9 /* Sources */,
+				64359666222536F500CD5AB9 /* Frameworks */,
+				64359667222536F500CD5AB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Netdisk;
+			productName = Netdisk;
+			productReference = 64359669222536F500CD5AB9 /* Netdisk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64359661222536F500CD5AB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = Baidu;
+				TargetAttributes = {
+					64359668222536F500CD5AB9 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = 64359664222536F500CD5AB9 /* Build configuration list for PBXProject "Netdisk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64359660222536F500CD5AB9;
+			productRefGroup = 6435966A222536F500CD5AB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64359668222536F500CD5AB9 /* Netdisk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64359667222536F500CD5AB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64359679222536F600CD5AB9 /* LaunchScreen.storyboard in Resources */,
+				64359676222536F600CD5AB9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5EE643B3029338987AEB3CB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Netdisk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64359665222536F500CD5AB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B584A82637B9FD00090808 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		64359677222536F600CD5AB9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64359678222536F600CD5AB9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6435967D222536F600CD5AB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6435967E222536F600CD5AB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64359680222536F600CD5AB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F6D8CCF0363656BF6E830A0 /* Pods-Netdisk.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 63N993Z765;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Netdisk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.netdisk-module.Netdisk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Netdisk/Netdisk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+			};
+			name = Debug;
+		};
+		64359681222536F600CD5AB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D0AA223453F25457B0E2725 /* Pods-Netdisk.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 975UV32A32;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Netdisk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.netdisk-module.Netdisk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Netdisk/Netdisk-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64359664222536F500CD5AB9 /* Build configuration list for PBXProject "Netdisk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6435967D222536F600CD5AB9 /* Debug */,
+				6435967E222536F600CD5AB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6435967F222536F600CD5AB9 /* Build configuration list for PBXNativeTarget "Netdisk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64359680222536F600CD5AB9 /* Debug */,
+				64359681222536F600CD5AB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 64359661222536F500CD5AB9 /* Project object */;
+}

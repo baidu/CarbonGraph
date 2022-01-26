@@ -1,0 +1,28 @@
+platform :ios, '9.0'
+
+install! 'cocoapods', :generate_multiple_pod_projects => true, :warn_for_unused_master_specs_repo => false
+use_frameworks! :linkage => :static
+use_modular_headers!
+
+target 'Netdisk' do
+  
+  pod 'CarbonCore', :path => '../..'
+  pod 'CarbonObjC', :path => '../..'
+  
+  pod 'AppDelegateModule', :path => '../AppDelegateModule'
+  pod 'BasicModule', :path => '../BasicModule'
+  pod 'HomeModule', :path => '../HomeModule'
+  pod 'MeModule', :path => '../MeModule'
+  pod 'FileModule', :path => '../FileModule'
+  
+  post_install do |installer|
+    installer.generated_projects.each do |project|
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        end
+      end
+    end
+  end
+ 
+end
