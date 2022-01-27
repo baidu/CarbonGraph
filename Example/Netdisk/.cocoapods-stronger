@@ -1,7 +1,0 @@
-LFS_SERVER_URL: http://yq01-wangxin54.epc.baidu.com:8081
-
-LFS_SERVER_USER: xuyafei
-
-LFS_SERVER_PASSWD: '123456'
-
-PREBUILD_CACHE_REPO: netdisk-prebuild-cache
