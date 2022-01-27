@@ -26,7 +26,7 @@ jobs:
         run: |
           workspace=`cat workspace`
           schemes=`cat schemes`
-          echo Building schemes of $workspace workspace: $schemes
           for scheme in $schemes; do
-            xcodebuild clean build analyze -workspace "$workspace.xcworkspace" -scheme "$scheme" | xcpretty && exit ${PIPESTATUS[0]}
+            echo Building $scheme scheme of $workspace.workspace
+            xcodebuild clean build analyze -workspace "$workspace.xcworkspace" -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty && exit ${PIPESTATUS[0]}
           done
