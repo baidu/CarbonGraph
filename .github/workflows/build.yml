@@ -21,11 +21,12 @@ jobs:
           schemes=$(echo $workspace_json | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['workspace']['schemes']")
           echo $workspace | cat >workspace
           echo $schemes | cat >schemes
-          echo Building schemes: $schemes
+          echo Prepared schemes of $workspace workspace: $schemes
       - name: Build
         run: |
-          workspace=`cat workspace`
-          schemes=`cat schemes`
-          for scheme in $scheme; do
+          workspace=${cat workspace}
+          schemes=${cat schemes}
+          echo Building schemes of $workspace workspace: $schemes
+          for scheme in $schemes; do
             xcodebuild clean build analyze -workspace "$workspace" -scheme "$scheme" | xcpretty && exit ${PIPESTATUS[0]}
           done
