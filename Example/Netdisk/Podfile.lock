@@ -21,21 +21,22 @@ PODS:
 DEPENDENCIES:
   - AppDelegateModule (from `../AppDelegateModule`)
   - BasicModule (from `../BasicModule`)
-  - CarbonCore (from `../..`)
-  - CarbonObjC (from `../..`)
+  - CarbonCore (~> 1.2.2)
+  - CarbonObjC (~> 1.2.2)
   - FileModule (from `../FileModule`)
   - HomeModule (from `../HomeModule`)
   - MeModule (from `../MeModule`)
+
+SPEC REPOS:
+  trunk:
+    - CarbonCore
+    - CarbonObjC
 
 EXTERNAL SOURCES:
   AppDelegateModule:
     :path: "../AppDelegateModule"
   BasicModule:
     :path: "../BasicModule"
-  CarbonCore:
-    :path: "../.."
-  CarbonObjC:
-    :path: "../.."
   FileModule:
     :path: "../FileModule"
   HomeModule:
@@ -52,6 +53,6 @@ SPEC CHECKSUMS:
   HomeModule: bdbf68fe19c3aca079f3c48ac5a54aaf599bb7c2
   MeModule: 23d6688f684619e470b3ddbd877ad0b138e67adc
 
-PODFILE CHECKSUM: 086e67925edae7f52d7bd666f8cfbecbf7d7ebee
+PODFILE CHECKSUM: 74c618eea8df88d4717c679d5d16bbd4e7f4c95a
 
 COCOAPODS: 1.10.2

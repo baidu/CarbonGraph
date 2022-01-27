@@ -1,4 +1,4 @@
-name: Xcode - Build and Analyze
+name: build
 
 on:
   push:
@@ -28,5 +28,5 @@ jobs:
           schemes=`cat schemes`
           for scheme in $schemes; do
             echo Building $scheme scheme of $workspace.workspace
-            xcodebuild clean build analyze -workspace "$workspace.xcworkspace" -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty && exit ${PIPESTATUS[0]}
+            set -o pipefail && xcodebuild clean build analyze -workspace "$workspace.xcworkspace" -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 8' | xcpretty
           done
