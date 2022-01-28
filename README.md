@@ -2,6 +2,7 @@
 ![Logo Banner Dark](./Images/logo_banner-dark.svg#gh-dark-mode-only)
 
 ![Github Workflow](https://img.shields.io/github/workflow/status/baidu/CarbonGraph/build/main?style=flat-square)&nbsp;
+![Codecov](https://img.shields.io/codecov/c/github/baidu/CarbonGraph?style=flat-square)
 ![Swift Version](https://img.shields.io/badge/Swift-5.2--5.5-orange?style=flat-square)&nbsp;
 ![CocoaPods Version](https://img.shields.io/cocoapods/v/CarbonCore?style=flat-square)&nbsp;
 ![Platforms](https://img.shields.io/cocoapods/p/CarbonCore?style=flat-square)&nbsp;

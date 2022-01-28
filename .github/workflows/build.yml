@@ -28,7 +28,7 @@ jobs:
           schemes=`cat schemes`
           for scheme in $schemes; do
             echo Building $scheme scheme of $workspace.workspace
-            set -o pipefail && xcodebuild clean build test -workspace "$workspace.xcworkspace" -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 8' -enableCodeCoverage YES | xcpretty
+            set -o pipefail && xcodebuild build test -workspace "$workspace.xcworkspace" -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 8' -enableCodeCoverage YES | xcpretty
           done
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
