@@ -1,9 +1,11 @@
 ![Logo Banner Light](./Images/logo_banner-light.svg#gh-light-mode-only)
 ![Logo Banner Dark](./Images/logo_banner-dark.svg#gh-dark-mode-only)
 
+![Github Workflow](https://img.shields.io/github/workflow/status/baidu/CarbonGraph/build/main?style=flat-square)&nbsp;
 ![Swift Version](https://img.shields.io/badge/Swift-5.2--5.5-orange?style=flat-square)&nbsp;
-![Platforms](https://img.shields.io/badge/platform-ios-lightgray?style=flat-square)&nbsp;
-![License](https://img.shields.io/badge/license-MIT-black.svg?style=flat-square)&nbsp;
+![CocoaPods Version](https://img.shields.io/cocoapods/v/CarbonCore?style=flat-square)&nbsp;
+![Platforms](https://img.shields.io/cocoapods/p/CarbonCore?style=flat-square)&nbsp;
+![License](https://img.shields.io/cocoapods/l/CarbonCore?style=flat-square)
 
 CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can use it to build loose coupling between modules.
 
