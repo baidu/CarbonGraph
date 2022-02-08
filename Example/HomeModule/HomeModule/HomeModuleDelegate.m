@@ -25,4 +25,8 @@
     
 }
 
++ (NSArray<CBNModuleLaunchOptionsItem *> *)launchOptions {
+    return @[[CBNModuleLaunchOptionsItem itemWithPriority:CBNModulePriorityBusiness + 1]];
+}
+
 @end

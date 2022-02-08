@@ -116,28 +116,52 @@ class ModuleLaunchOptions {
     
     /// Create module name configuration item
     /// - Parameter name: Module name
-    @objc public init(name: String) {
+    @objc(itemWithName:) static public func name(
+        _ name: String
+    ) -> ModuleLaunchOptionsItem {
+        ModuleLaunchOptionsItem(name: name)
+    }
+    
+    private init(name: String) {
         key = .name
         value = name
     }
     
     /// Create module priority configuration item
     /// - Parameter priority: Module priority
-    @objc public init(priority: ModulePriority) {
+    @objc(itemWithPriority:) static public func priority(
+        _ priority: ModulePriority
+    ) -> ModuleLaunchOptionsItem {
+        ModuleLaunchOptionsItem(priority: priority)
+    }
+    
+    private init(priority: ModulePriority) {
         key = .priority
         value = priority
     }
     
     /// Create module class configuration item
     /// - Parameter cls: Module class
-    @objc public init(cls: Module.Type) {
+    @objc(itemWithCls:) static public func cls(
+        _ cls: Module.Type
+    ) -> ModuleLaunchOptionsItem {
+        ModuleLaunchOptionsItem(cls: cls)
+    }
+    
+    private init(cls: Module.Type) {
         key = .cls
         value = cls
     }
     
     /// Create module lazy loading configuration item
     /// - Parameter lazyLoad: Whether the module is loaded lazily
-    @objc public init(lazyLoad: Bool) {
+    @objc(itemWithLazyLoad:) static public func lazyLoad(
+        _ lazyLoad: Bool
+    ) -> ModuleLaunchOptionsItem {
+        ModuleLaunchOptionsItem(lazyLoad: lazyLoad)
+    }
+    
+    private init(lazyLoad: Bool) {
         key = .lazyLoad
         value = lazyLoad
     }

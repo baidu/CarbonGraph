@@ -9,8 +9,11 @@ use_modular_headers!
 
 target 'Netdisk' do
   
-  pod 'CarbonCore', '~> 1.2.2'
-  pod 'CarbonObjC', '~> 1.2.2'
+#  pod 'CarbonCore', '~> 1.2.2'
+#  pod 'CarbonObjC', '~> 1.2.2'
+  
+  pod 'CarbonCore', :path => '../..'
+  pod 'CarbonObjC', :path => '../..'
   
   pod 'AppDelegateModule', :path => '../AppDelegateModule'
   pod 'BasicModule', :path => '../BasicModule'

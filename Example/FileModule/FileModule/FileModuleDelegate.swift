@@ -13,7 +13,7 @@ import CarbonCore
 import BasicModule
 import UIKit
 
-class FileModuleDelegate: ScannableModuleConfiguration {
+final class FileModuleDelegate: ScannableModuleConfiguration {
     static func definitions(of context: ObjectContext) -> Definitions {
         Definition()
             .protocol(FileModelProtocol.self)
@@ -33,6 +33,10 @@ class FileModuleDelegate: ScannableModuleConfiguration {
             .protocol(FileViewControllerProtocol.self)
             .factory { _ in FileViewController() }
             .property(\.avatarFactory)
+    }
+    
+    static func launchOptions() -> [ModuleLaunchOptionsItem] {
+        [.priority(.business)]
     }
 }
 
