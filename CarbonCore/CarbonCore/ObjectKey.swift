@@ -16,7 +16,7 @@ class ObjectKey {
                      _ name: String? = nil) {
         var identifier = NSStringFromProtocol(`protocol`)
         if let name = name {
-            identifier.append(name)
+            identifier.append("; \(name)")
         }
         self.init(identifier: identifier)
     }
