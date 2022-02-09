@@ -60,9 +60,13 @@ import Foundation
     case foundation = 3000
     case system = 10000
     
-    /// <#Description#>
-    /// - Parameter number: <#number description#>
-    /// - Returns: <#description#>
+    /// Increase priority
+    /// - Parameter number: Number to increase, range is 0 to 999
+    /// - Returns: Incremented int priority
+    ///
+    /// ```
+    /// ModulePriority.services.increase(999)
+    /// ```
     public func increase(_ number: Int) -> Int {
         switch self {
         case .`default`, .business, .services:
@@ -75,9 +79,22 @@ import Foundation
     }
 }
 
-
 public extension Int {
-    /// <#Description#>
+    /// A convenience prefix for autocompleting overload method ``ModuleLaunchOptionsItem/priority(_:)-7s1q4`` with int argument
+    ///
+    /// Example:
+    /// ```
+    /// static func launchOptions() -> [ModuleLaunchOptionsItem] {
+    ///     [.priority(.cbn.business.increase(1))]
+    /// }
+    /// ```
+    ///
+    /// The same as:
+    /// ```
+    /// static func launchOptions() -> [ModuleLaunchOptionsItem] {
+    ///     [.priority(ModulePriority.business.increase(1))]
+    /// }
+    /// ```
     static var cbn: ModulePriority.Type { ModulePriority.self }
 }
 
