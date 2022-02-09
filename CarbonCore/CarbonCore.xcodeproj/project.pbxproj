@@ -19,6 +19,8 @@
 		A39686922733CE7F00243DBC /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39686892733CE7E00243DBC /* Application.swift */; };
 		A3AB0CF1273E5A7F009B00CA /* AnimalKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB0CF0273E5A7F009B00CA /* AnimalKeeper.swift */; };
 		A3AB0CF3273E6555009B00CA /* ObjectContextStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB0CF2273E6555009B00CA /* ObjectContextStructTests.swift */; };
+		A3E323FB27B26A9E00942446 /* ObjectContext.Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E323FA27B26A9E00942446 /* ObjectContext.Convenience.swift */; };
+		A3E323FD27B26D9300942446 /* ObjectContextConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E323FC27B26D9300942446 /* ObjectContextConvenienceTests.swift */; };
 		A3E7036C271EC18A00D1CAE5 /* CarbonCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = A3E7036B271EC18A00D1CAE5 /* CarbonCore.docc */; };
 		A3E70372271EC18B00D1CAE5 /* CarbonCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E70367271EC18A00D1CAE5 /* CarbonCore.framework */; };
 		A3E70396271EC26300D1CAE5 /* ObjectResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70381271EC26300D1CAE5 /* ObjectResolver.swift */; };
@@ -84,6 +86,8 @@
 		A39686892733CE7E00243DBC /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		A3AB0CF0273E5A7F009B00CA /* AnimalKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalKeeper.swift; sourceTree = "<group>"; };
 		A3AB0CF2273E6555009B00CA /* ObjectContextStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectContextStructTests.swift; sourceTree = "<group>"; };
+		A3E323FA27B26A9E00942446 /* ObjectContext.Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContext.Convenience.swift; sourceTree = "<group>"; };
+		A3E323FC27B26D9300942446 /* ObjectContextConvenienceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextConvenienceTests.swift; sourceTree = "<group>"; };
 		A3E70367271EC18A00D1CAE5 /* CarbonCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarbonCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E7036B271EC18A00D1CAE5 /* CarbonCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CarbonCore.docc; sourceTree = "<group>"; };
 		A3E70371271EC18B00D1CAE5 /* CarbonCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +226,7 @@
 				A3E70390271EC26300D1CAE5 /* DefinitionBuilder.swift */,
 				A3E70384271EC26300D1CAE5 /* GroupDefinitionBuilder.swift */,
 				A3E70387271EC26300D1CAE5 /* ObjectContext.Args.swift */,
+				A3E323FA27B26A9E00942446 /* ObjectContext.Convenience.swift */,
 				A3E70383271EC26300D1CAE5 /* ObjectContext.swift */,
 				A3E7038A271EC26300D1CAE5 /* ObjectDefinition.swift */,
 				A3E7038F271EC26300D1CAE5 /* ObjectKey.swift */,
@@ -243,6 +248,7 @@
 				A3E7042A271EC4C200D1CAE5 /* ObjectContextCircularityTests.swift */,
 				A3E70425271EC4C200D1CAE5 /* ObjectContextConstructorArgumentsTests.swift */,
 				A3E70427271EC4C200D1CAE5 /* ObjectContextConstructorFactoryArgumentsTests.swift */,
+				A3E323FC27B26D9300942446 /* ObjectContextConvenienceTests.swift */,
 				A3E7042C271EC4C200D1CAE5 /* ObjectContextFactoryArgumentsTests.swift */,
 				A3E70424271EC4C200D1CAE5 /* ObjectContextMultipleThreadsTests.swift */,
 				A3E70414271EC4C200D1CAE5 /* ObjectContextPropertyTests.swift */,
@@ -384,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E323FB27B26A9E00942446 /* ObjectContext.Convenience.swift in Sources */,
 				A3E70396271EC26300D1CAE5 /* ObjectResolver.swift in Sources */,
 				A396868B2733CE7F00243DBC /* ApplicationContext.swift in Sources */,
 				A39686922733CE7F00243DBC /* Application.swift in Sources */,
@@ -425,6 +432,7 @@
 				A3E70439271EC4C200D1CAE5 /* FileModelProtocol.swift in Sources */,
 				A3E7043A271EC4C200D1CAE5 /* AnimalSameServiceModuleDelegate.swift in Sources */,
 				A3E70433271EC4C200D1CAE5 /* FileModel.swift in Sources */,
+				A3E323FD27B26D9300942446 /* ObjectContextConvenienceTests.swift in Sources */,
 				A3AB0CF1273E5A7F009B00CA /* AnimalKeeper.swift in Sources */,
 				A3E70440271EC4C200D1CAE5 /* ObjectContextConstructorFactoryArgumentsTests.swift in Sources */,
 				A3E7043C271EC4C200D1CAE5 /* Circularity.swift in Sources */,

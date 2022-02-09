@@ -555,7 +555,7 @@ public class AutowiredDefinitionBuilder<T>: DynamicAutowiredDefinitionBuilder {
     /// - Parameter keyPath: Optional property KeyPath of the object to make the framework to
     /// automatically inject dependency
     /// - Returns: DefinitionBuilder that can set the dependencies that need to be built after creation
-    public func property<V>(
+    @discardableResult public func property<V>(
         _ keyPath: ReferenceWritableKeyPath<T, Optional<V>>
     ) -> AutowiredDefinitionBuilder<T> {
         return storeProperty {
@@ -585,7 +585,7 @@ public class AutowiredDefinitionBuilder<T>: DynamicAutowiredDefinitionBuilder {
     /// - Parameter keyPath: Non-optional property KeyPath of the object to make the framework to
     /// automatically inject dependency
     /// - Returns: DefinitionBuilder that can set the dependencies that need to be built after creation
-    public func property<V>(
+    @discardableResult public func property<V>(
         _ keyPath: ReferenceWritableKeyPath<T, V>
     ) -> AutowiredDefinitionBuilder<T> {
         return storeProperty {
@@ -648,7 +648,7 @@ public class DynamicAutowiredDefinitionBuilder: AttributeDefinitionBuilder {
     /// - Parameter propertyName: Property name of the object to make the framework to
     /// automatically inject dependency
     /// - Returns: DefinitionBuilder that can set the dependencies that need to be built after creation
-    @objc public func propertyName(
+    @discardableResult @objc public func propertyName(
         _ propertyName: String
     ) -> DynamicAutowiredDefinitionBuilder {
         if self.definition.propertiesName == nil {
@@ -680,7 +680,7 @@ public class DynamicAutowiredDefinitionBuilder: AttributeDefinitionBuilder {
     /// - Parameter propertiesName: Properties name of the object to make the framework to
     /// automatically inject dependencies
     /// - Returns: DefinitionBuilder that can set the attributes of the object
-    @objc public func propertiesName(
+    @discardableResult @objc public func propertiesName(
         _ propertiesName: [String]
     ) -> AttributeDefinitionBuilder {
         self.definition.propertiesName = propertiesName
