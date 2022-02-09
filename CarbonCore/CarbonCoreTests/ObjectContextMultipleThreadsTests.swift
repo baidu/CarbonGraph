@@ -23,7 +23,7 @@ class ObjectContextMultipleThreadsTests: XCTestCase {
         let expectation = self.expectation(description: "request should complete")
         expectation.expectedFulfillmentCount = threadCount
         context.clean()
-        handleOnMultipleThreads {
+        concurrentPerform {
             let builder = Definition(UUID().uuidString)
                 .object(PetOwner() as Person)
             self.context.register(builder: builder)
@@ -41,7 +41,8 @@ class ObjectContextMultipleThreadsTests: XCTestCase {
         let builder = Definition()
             .object(persons.insert(PetOwner()).memberAfterInsert as Person)
         context.register(builder: builder)
-        handleOnMultipleThreads { _ = self.context[Person.self]
+        concurrentPerform {
+            _ = self.context[Person.self]
             expectation.fulfill()
         }
         waitForExpectations(timeout: 10, handler: nil)
@@ -62,23 +63,26 @@ class ObjectContextMultipleThreadsTests: XCTestCase {
         context.register(builder: parentBuilder)
         context.register(builder: childBuilder)
         
-        handleOnMultipleThreads { _ = self.context[ParentProtocol.self] }
+        concurrentPerform {
+            _ = self.context[ParentProtocol.self]
+        }
     }
     
     func testMultipleThreadsResolverPerformance() throws {
         context.clean()
-        for i in 0..<1000 {
+        let definitionCount = 1000
+        for i in 0..<definitionCount {
             let builder = Definition("\(i)").object(PetOwner())
             context.register(builder: builder)
         }
         measure {
-            DispatchQueue.concurrentPerform(iterations: 10000) { i in
-                _ = self.context[PetOwner.self, name: "\(i % 1000)"]
+            DispatchQueue.concurrentPerform(iterations: threadCount) { i in
+                _ = self.context[PetOwner.self, name: "\(i % definitionCount)"]
             }
         }
     }
     
-    private func handleOnMultipleThreads(operation: @escaping () -> Void) {
+    private func concurrentPerform(operation: @escaping () -> Void) {
         let queue = DispatchQueue(
             label: "CarbonCoreTests_MultipleThreads_Queue",
             attributes: .concurrent
