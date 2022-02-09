@@ -23,11 +23,9 @@ class ModuleTests: XCTestCase {
             items: [.lazyLoad(true), .priority(.business)]
         ))
         
-        let priorityValue = ModulePriority.services.rawValue + 1000
-        let priority = ModulePriority(rawValue: priorityValue)!
         let module2 = Module(launchOptions: ModuleLaunchOptions(
             delegateClass: TestModuleDelegate.self,
-            items: [.lazyLoad(false), .priority(priority)]
+            items: [.lazyLoad(false), .priority(.cbn.services.increase(999))]
         ))
                              
         let module3 = Module(launchOptions: ModuleLaunchOptions(
@@ -43,8 +41,8 @@ class ModuleTests: XCTestCase {
         let modules = [module1, module4, module2, module3].sorted {
             $0.comparePriority(to: $1) == .orderedDescending
         }
-        XCTAssertEqual(modules[0], module2)
-        XCTAssertEqual(modules[1], module3)
+        XCTAssertEqual(modules[0], module3)
+        XCTAssertEqual(modules[1], module2)
         XCTAssertEqual(modules[2], module4)
         XCTAssertEqual(modules[3], module1)
     }

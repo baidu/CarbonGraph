@@ -35,8 +35,12 @@ final class FileModuleDelegate: ScannableModuleConfiguration {
             .property(\.avatarFactory)
     }
     
+    func moduleDidFinishLaunching(_ module: Module) {
+        
+    }
+    
     static func launchOptions() -> [ModuleLaunchOptionsItem] {
-        [.priority(.business)]
+        [.priority(.cbn.business.increase(2))]
     }
 }
 

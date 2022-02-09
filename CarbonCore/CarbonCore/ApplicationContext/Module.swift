@@ -39,9 +39,9 @@ import Foundation
             return .orderedAscending
         case let r where l.lazyLoad == false && r.lazyLoad == true:
             return .orderedDescending
-        case let r where l.priority.rawValue < r.priority.rawValue:
+        case let r where l.priority < r.priority:
             return .orderedAscending
-        case let r where l.priority.rawValue > r.priority.rawValue:
+        case let r where l.priority > r.priority:
             return .orderedDescending
         default:
             return .orderedSame
@@ -59,12 +59,32 @@ import Foundation
     case services = 2000
     case foundation = 3000
     case system = 10000
+    
+    /// <#Description#>
+    /// - Parameter number: <#number description#>
+    /// - Returns: <#description#>
+    public func increase(_ number: Int) -> Int {
+        switch self {
+        case .`default`, .business, .services:
+            return rawValue + min(max(0, number), 999)
+        case .foundation:
+            return rawValue + min(max(0, number), 6999)
+        case .system:
+            return rawValue + number
+        }
+    }
+}
+
+
+public extension Int {
+    /// <#Description#>
+    static var cbn: ModulePriority.Type { ModulePriority.self }
 }
 
 class ModuleLaunchOptions {
     
     let name: String
-    let priority: ModulePriority
+    let priority: Int
     let moduleClass: Module.Type
     let delegateClass: ModuleDelegate.Type
     let lazyLoad: Bool
@@ -74,7 +94,7 @@ class ModuleLaunchOptions {
         self.delegateClass = delegateClass
         
         var nameValue: String?
-        var priorityValue: ModulePriority?
+        var priorityValue: Int?
         var moduleClassValue: Module.Type?
         var lazyLoadValue: Bool?
         
@@ -83,7 +103,7 @@ class ModuleLaunchOptions {
             case .name:
                 nameValue = item.value as? String
             case .priority:
-                priorityValue = item.value as? ModulePriority
+                priorityValue = item.value as? Int
             case .cls:
                 moduleClassValue = item.value as? Module.Type
             case .lazyLoad:
@@ -92,7 +112,7 @@ class ModuleLaunchOptions {
         }
         
         name = nameValue ?? String(reflecting: delegateClass)
-        priority = priorityValue ?? .default
+        priority = priorityValue ?? .cbn.default.rawValue
         moduleClass = moduleClassValue ?? Module.self
         lazyLoad = lazyLoadValue ?? false
     }
@@ -128,14 +148,22 @@ class ModuleLaunchOptions {
     }
     
     /// Create module priority configuration item
-    /// - Parameter priority: Module priority
+    /// - Parameter priority: Module priority rawValue
     @objc(itemWithPriority:) static public func priority(
-        _ priority: ModulePriority
+        _ priority: Int
     ) -> ModuleLaunchOptionsItem {
         ModuleLaunchOptionsItem(priority: priority)
     }
     
-    private init(priority: ModulePriority) {
+    /// Create module priority configuration item
+    /// - Parameter priority: Module priority
+    static public func priority(
+        _ priority: ModulePriority
+    ) -> ModuleLaunchOptionsItem {
+        ModuleLaunchOptionsItem(priority: priority.rawValue)
+    }
+    
+    private init(priority: Int) {
         key = .priority
         value = priority
     }

@@ -93,7 +93,7 @@ import UIKit
         let moduleClass = moduleLaunchOptions.moduleClass
         let module = moduleClass.init(launchOptions: moduleLaunchOptions)
         let index = modules.firstIndex(where: {
-            $0.comparePriority(to: module) == .orderedDescending
+            module.comparePriority(to: $0) == .orderedDescending
         }) ?? modules.endIndex
         modules.insert(module, at: index)
         return module
