@@ -1,5 +1,5 @@
 //
-//  Circularity.swift
+//  CircularityTests.swift
 //  CarbonCoreTests
 //
 //  Copyright (c) Baidu Inc. All rights reserved.

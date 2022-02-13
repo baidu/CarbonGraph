@@ -10,7 +10,6 @@
 
 import Foundation
 
-
 @objc public protocol FileModelProtocol: NSObjectProtocol {
     var filePath1: String? { get set }
     var filePath2: String? { get set }

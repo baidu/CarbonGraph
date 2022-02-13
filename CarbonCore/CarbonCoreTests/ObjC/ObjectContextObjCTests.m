@@ -1,5 +1,5 @@
 //
-//  ObjectContextTestsOC.m
+//  ObjectContextObjCTests.m
 //  CarbonCoreTests
 //
 //  Copyright (c) Baidu Inc. All rights reserved.
@@ -15,13 +15,13 @@
 
 @import CarbonCore;
 
-@interface ObjectContextTestsOC : XCTestCase
+@interface ObjectContextObjCTests : XCTestCase
 
-@property(nonatomic, strong) CBNApplicationContext *context;
+@property (nonatomic, strong) CBNApplicationContext *context;
 
 @end
 
-@implementation ObjectContextTestsOC
+@implementation ObjectContextObjCTests
 
 - (void)setUp {
     _context = [[CBNApplicationContext alloc] initWithDefaultScope:CBNObjectScope.prototype moduleScan:NO];
