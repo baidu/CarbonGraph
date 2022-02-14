@@ -10,15 +10,16 @@
 
 #import "HomeModuleDelegate.h"
 #import "HomeViewController.h"
-#import "HomeVCService.h"
+@import FileModule;
 
 @implementation HomeModuleDelegate
 
 + (void)definitionsOfContext:(ObjectContext *)context {
     [CBNObjectDefinition define:^(CBNKeyDefinitionBuilder * _Nonnull builder) {
-        builder.protocol(@protocol(HomeVCServiceProtocol))
-            .cls(HomeVCService.class);
-    }];
+        builder
+            .cbn_cls(HomeViewController)
+            .propertyName(CBN_PROPERTY(HomeViewController, fileManager));
+    } name:@"homevc"];
 }
 
 - (void)moduleDidFinishLaunching:(CBNModule *)module_ {

@@ -10,15 +10,13 @@
 
 #import "MeModuleDelegate.h"
 #import "MeViewController.h"
-#import "MeVCService.h"
 
 @implementation MeModuleDelegate
 
 + (void)definitionsOfContext:(ObjectContext *)context {
     [CBNObjectDefinition define:^(CBNKeyDefinitionBuilder * _Nonnull builder) {
-        builder.protocol(@protocol(MeVCServiceProtocol))
-            .cls(MeVCService.class);
-    }];
+        builder.cbn_cls(MeViewController);
+    } name:@"mevc"];
 }
 
 - (void)moduleDidFinishLaunching:(CBNModule *)module_ {

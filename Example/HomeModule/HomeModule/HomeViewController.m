@@ -9,40 +9,42 @@
 //
 
 #import "HomeViewController.h"
-#import <BasicModule/BasicModule-umbrella.h>
-#import <FileModule/FileModule-Swift.h>
+@import BasicModule;
 @import CarbonObjC;
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic,   copy) NSArray *dataSource;
+
+@property (nonatomic, copy) NSArray *dataSource;
 @property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation HomeViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = @"Home";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataSource = self.fileManager.recentFileModels;
+    self.view.backgroundColor = UIColor.whiteColor;
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    CGRect frame = self.view.bounds;
-    frame.origin.y = 100;
-    _tableView.frame = frame;
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    _tableView.frame = self.view.bounds;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    
-    // MARK: S7: Protocol defined in Swift, registered in Swift, resolved in ObjC
-    id<FileManagerProtocol> fileManager = (id)Application.sharedApplication.context[@protocol(FileManagerProtocol)];
-    NSArray *recentFileModels = [fileManager recentFileModels];
-    self.dataSource = recentFileModels;
-    printf("S7: %s, %zd\n", fileManager.description.UTF8String, recentFileModels.count);
-    
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"carbon"];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CarbonGarph"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"carbon"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CarbonGarph"];
     }
     id<FileModelProtocol> model = (id<FileModelProtocol>)self.dataSource[indexPath.row];
     cell.textLabel.text = model.fileName;
@@ -52,10 +54,6 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
 }
 
 @end

@@ -14,25 +14,27 @@ import BasicModule
 import UIKit
 
 final class FileModuleDelegate: ScannableModuleConfiguration {
+    
     static func definitions(of context: ObjectContext) -> Definitions {
+        
+        // --- Just for testing
         Definition()
             .protocol(FileModelProtocol.self)
             .constructor(FileModel.init(filePath:))
-        
         Definition()
             .constructor(FilePath.init)
-        
         Definition()
             .factory(fileModel2(context:arg1:arg2:))
+        // ---
         
         Definition()
             .protocol(FileManagerProtocol.self)
-            .factory { _ in FileManager() }
+            .object(FileManager())
         
-        Definition()
-            .protocol(FileViewControllerProtocol.self)
-            .factory { _ in FileViewController() }
-            .property(\.avatarFactory)
+        Definition("filevc")
+            .protocol(type: NSObjectProtocol.self)
+            .object(FileViewController())
+            .property(\.fileManager)
     }
     
     func moduleDidFinishLaunching(_ module: Module) {

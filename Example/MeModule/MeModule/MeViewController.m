@@ -12,40 +12,34 @@
 #import <BasicModule/BasicModule-umbrella.h>
 @import CarbonObjC;
 
-@interface MeViewController ()
-
-@end
-
 @implementation MeViewController
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = @"Me";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColor.whiteColor;
     
-    CGRect bounds = self.view.bounds;
-    
-    id<AvatarFactoryProtocol> factory = CBN_RESOLVE(AvatarFactoryProtocol);
-    
-    UIImageView *iconImageView = [factory imageViewWithImage:[UIImage imageNamed:@"carbon_about_icon"]];
+    id<AccountManagerProtocol> accountManager = CBN_RESOLVE(AccountManagerProtocol);
+    UIImageView *iconImageView = [[UIImageView alloc] initWithImage:accountManager.accountInfo.avatarImage];
     iconImageView.contentMode = UIViewContentModeScaleAspectFit;
-    iconImageView.frame = CGRectMake(bounds.size.width / 2 - 50, 100, 100, 100);
+    iconImageView.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2 - 150, 50, 300, 300);
     [self.view addSubview:iconImageView];
     
-    UIImageView *carbonImageView = [factory imageViewWithImage:[UIImage imageNamed:@"carbon_about"]];
-    carbonImageView.contentMode = UIViewContentModeScaleAspectFit;
-    carbonImageView.frame = CGRectMake(bounds.size.width / 2 - 110, 200, 225, 65);
-    [self.view addSubview:carbonImageView];
-    
-    UILabel *label = [factory labelWithString:@"CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can use it to build loose coupling between modules."];
+    UILabel *label = [[UILabel alloc] init];
+    label.text = accountManager.accountInfo.name;
     label.textAlignment = NSTextAlignmentCenter;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.backgroundColor = [UIColor clearColor];
     label.numberOfLines = 10;
-    label.frame = CGRectMake(bounds.size.width / 2 - 150, 200, 300, 300);
+    label.frame = CGRectMake(CGRectGetWidth(self.view.bounds) / 2 - 150, 200, 300, 300);
     [self.view addSubview: label];
-    
-    // MARK: S3: Protocol defined in ObjC, registered in Swift, resolved in ObjC
-    id<FileViewControllerProtocol> fileViewController = (id)Application.sharedApplication.context[@protocol(FileViewControllerProtocol)];
-    printf("S3: %s\n", fileViewController.description.UTF8String);
 }
 
 

@@ -12,6 +12,5 @@ import Foundation
 import BasicModule
 
 @objc public protocol FileManagerProtocol: NSObjectProtocol {
-    func fileModels(_ fileModel: FileModelProtocol?) -> Array<FileModelProtocol>
     func recentFileModels() -> Array<FileModelProtocol>
 }
