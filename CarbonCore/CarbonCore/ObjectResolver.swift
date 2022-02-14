@@ -34,7 +34,8 @@ public class ObjectResolver: NSObject {
         }
         
         // Read singleton object
-        if let singletonObject = (def.lock.read { def.storage.object }) as? T {
+        if let safeObject = (def.lock.read { def.storage.object }),
+           let singletonObject = safeObject as? T {
             return singletonObject
         }
         
@@ -44,7 +45,8 @@ public class ObjectResolver: NSObject {
         }
         
         // Object created by other thread
-        if let otherObject = def.storage.object as? T {
+        if let safeObject = (def.lock.read { def.storage.object }),
+           let otherObject = safeObject as? T {
             return otherObject
         }
         
@@ -55,7 +57,7 @@ public class ObjectResolver: NSObject {
         if let constructor = def.constructor as? (A) -> Any? {
             let constructedObject = invoker(constructor)
             
-            /*
+            /**
              In some models (iPhone SE / iPhone SE2), the following test code
              will execute case 2 (Can not unwraps double optionals with type
              conversion).
@@ -103,28 +105,45 @@ public class ObjectResolver: NSObject {
         } else {
             return nil
         }
-        guard let anObject = object as? T else {
+        guard let newObject = object as? T else {
+            return nil
+        }
+        /**
+         // When T is of type NSObjectProtocol.self
+         
+         Test Code:
+         
+         let nilObject: Any? = nil
+         let a = nilObject as? NSObjectProtocol
+         print("a:", a, type(of: a))
+         // a: nil Optional<NSObject>
+         let b = nilObject as? T
+         print("b:", b, type(of: b))
+         // b: Optional(<null>) Optional<NSObject>
+         */
+        guard !(newObject is NSNull) else {
             return nil
         }
         
         // Object created by factory or constructor
-        if let otherObject = def.storage.object as? T {
+        if let safeObject = (def.lock.read { def.storage.object }),
+           let otherObject = safeObject as? T {
             return otherObject
         }
         
         // Store object
-        def.storage.object = anObject
+        def.storage.object = newObject
         
         // Autowiring properties and setters
-        autowiredProperties(def.propertiesName, of: anObject)
-        unitedPropertySetter(def)(context, anObject as AnyObject)
-        unitedSetter(def)(context, anObject)
-        unitedAction(def)(context, anObject)
+        autowiredProperties(def.propertiesName, of: newObject)
+        unitedPropertySetter(def)(context, newObject as AnyObject)
+        unitedSetter(def)(context, newObject)
+        unitedAction(def)(context, newObject)
         
         // Release object if necessary
         def.storage.autorelease()
         
-        return anObject
+        return newObject
     }
     
     /// A private method that exists for some historical reasons

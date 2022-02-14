@@ -150,6 +150,30 @@ public class KeyDefinitionBuilder: FactoryDefinitionBuilder {
         return AliasDefinitionBuilder(self.definition)
     }
     
+    /// Set the protocol implemented by the resolved object or the type of the resolved object
+    ///
+    /// * Example to register:
+    /// ```
+    /// let builder = Definition("homevc")
+    ///     .protocol(NSObjectProtocol.self)
+    ///     .object(HomeViewController())
+    /// context.register(builder: builder)
+    /// ```
+    ///
+    /// * Example to resolve:
+    /// ```
+    /// context[NSObjectProtocol.self, "homevc"]
+    /// ```
+    ///
+    /// - Parameter type: Protocol implemented by the resolved object or the type of the resolved object
+    /// - Returns: DefinitionBuilder that can set alias protocol (or type) of definition
+    ///
+    /// - Note: When using NSObjectProtocol as key, the compiler will choose ObjC overload method ``protocol(_:)-2dnia``. Use this method to force the use of Swift overload methods ``protocol(_:)-331l7``.
+    public func `protocol`(type: Any.Type) -> AliasDefinitionBuilder {
+        self.definition.protocolType = type
+        return AliasDefinitionBuilder(self.definition)
+    }
+    
 }
 
 /// AliasDefinitionBuilder is used after KeyDefinitionBuilder to set the alias protocol (or type) of definition
