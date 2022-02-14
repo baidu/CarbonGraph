@@ -36,6 +36,9 @@ typedef NSObject* _Nonnull(^CBNFactoryDefineCompleted)(CBNObjectContext *context
 /// ObjC convenient entry for building and registering objects
 + (DefinitionBuilder *)define:(void(^)(CBNKeyDefinitionBuilder *builder))block;
 
++ (DefinitionBuilder *)define:(void(^)(CBNKeyDefinitionBuilder *builder))block
+                         name:(NSString *)name;
+
 @end
 
 
@@ -64,7 +67,7 @@ typedef NSObject* _Nonnull(^CBNFactoryDefineCompleted)(CBNObjectContext *context
 @end
 
 
-@interface CBNKeyDefinitionBuilder : CBNDefinitionBuilder
+@interface CBNKeyDefinitionBuilder : CBNFactoryDefinitionBuilder
 
 - (CBNAliasDefinitionBuilder *(^)(Protocol *protocol))protocol;
 

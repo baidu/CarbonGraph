@@ -63,7 +63,16 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 @implementation CBNObjectDefinition
 
 + (DefinitionBuilder *)define:(void (^)(CBNKeyDefinitionBuilder * _Nonnull builder))block {
-    KeyDefinitionBuilder *builder = [[KeyDefinitionBuilder alloc] init];
+    return [self defineWithName:nil config:block];
+}
+
++ (DefinitionBuilder *)define:(void(^)(CBNKeyDefinitionBuilder *builder))block
+                         name:(NSString *)name {
+    return [self defineWithName:name config:block];
+}
+
++ (DefinitionBuilder *)defineWithName:(NSString *)name config:(void (^)(CBNKeyDefinitionBuilder * _Nonnull builder))block {
+    KeyDefinitionBuilder *builder = [[KeyDefinitionBuilder alloc] initWithName:name];
     CBNObjectDefinition *definition = [[CBNObjectDefinition alloc] initWithBuilder:builder];
     CBNKeyDefinitionBuilder *keyBuilder = [[CBNKeyDefinitionBuilder alloc] init];
     keyBuilder.delegate = definition;
