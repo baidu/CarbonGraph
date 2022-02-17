@@ -12,7 +12,7 @@ import Foundation
 
 class ObjectDefinition {
     
-    lazy var lock = DataLock()
+    let lock = DataLock()
     
     var name: String?
     var `protocol`: Protocol?
