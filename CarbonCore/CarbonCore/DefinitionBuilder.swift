@@ -16,32 +16,6 @@ public typealias Definitions = [DefinitionBuilder]
 /// DefinitionBuilder is a DSL Syntax used to build ObjectDefinition
 ///
 /// ObjectDefinition is the definition of the object and stores the data needed to resolve the object.
-///
-/// These data are divided into 4 types:
-/// * Key: The unique identifier of the object definition, used to locate
-/// * Factory: The closure used to create the object and the dependencies that need to be built during creation
-/// * Autowired: Dependencies that need to be built after creation
-/// * Configuration: Other configuration of the object
-///
-/// DefinitionBuilder has 10 subclasses. Each subclass is used to set a type of ObjectDefinition data.
-///
-/// Their corresponding relationship is as follows:
-/// * Key: ``KeyDefinitionBuilder``, ``AliasDefinitionBuilder``,
-/// ``DynamicAliasDefinitionBuilder``
-/// * Factory: ``FactoryDefinitionBuilder``, ``DynamicFactoryDefinitionBuilder``,
-/// ``DynamicClassDefinitionBuilder``
-/// * Autowired: ``AutowiredDefinitionBuilder``, ``DynamicAutowiredDefinitionBuilder``
-/// * Configuration: ``AttributeDefinitionBuilder``, ``ActionDefinitionBuilder``
-///
-/// The method of each DefinitionBuilder controls which methods can be used in the next step by controlling
-/// the returned DefinitionBuilder type. So you can only complete an ObjectDefinition in a set order.
-/// Each DefinitionBuilder controls which settings can be omitted by controlling the inheritance relationship.
-///
-/// The specifications are as follows, '>' means order, italics means it can be omitted. It doesn't matter
-/// if you are confused, the compiler will tell you the correct way.
-///
-/// * *Key* > *Alias* > Factory > *Autowired* > *Attribute* > *Action*
-/// * Key > *DynamicAlias* > *DynamicFactory* > DynamicClass  > *DynamicAutowired* > *Attribute* > *Action*
 public class DefinitionBuilder: NSObject {
     
     let definition: ObjectDefinition
@@ -147,6 +121,30 @@ public class KeyDefinitionBuilder: FactoryDefinitionBuilder {
     /// - Returns: DefinitionBuilder that can set alias protocol (or type) of definition
     public func `protocol`(_ protocolType: Any.Type) -> AliasDefinitionBuilder {
         self.definition.protocolType = protocolType
+        return AliasDefinitionBuilder(self.definition)
+    }
+    
+    /// Set the protocol implemented by the resolved object or the type of the resolved object
+    ///
+    /// * Example to register:
+    /// ```
+    /// let builder = Definition("homevc")
+    ///     .protocol(NSObjectProtocol.self)
+    ///     .object(HomeViewController())
+    /// context.register(builder: builder)
+    /// ```
+    ///
+    /// * Example to resolve:
+    /// ```
+    /// context[NSObjectProtocol.self, "homevc"]
+    /// ```
+    ///
+    /// - Parameter type: Protocol implemented by the resolved object or the type of the resolved object
+    /// - Returns: DefinitionBuilder that can set alias protocol (or type) of definition
+    ///
+    /// - Note: When using NSObjectProtocol as key, the compiler will choose ObjC overload method ``protocol(_:)-2dnia``. Use this method to force the use of Swift overload methods ``protocol(_:)-331l7``.
+    public func `protocol`(type: Any.Type) -> AliasDefinitionBuilder {
+        self.definition.protocolType = type
         return AliasDefinitionBuilder(self.definition)
     }
     
@@ -555,7 +553,7 @@ public class AutowiredDefinitionBuilder<T>: DynamicAutowiredDefinitionBuilder {
     /// - Parameter keyPath: Optional property KeyPath of the object to make the framework to
     /// automatically inject dependency
     /// - Returns: DefinitionBuilder that can set the dependencies that need to be built after creation
-    public func property<V>(
+    @discardableResult public func property<V>(
         _ keyPath: ReferenceWritableKeyPath<T, Optional<V>>
     ) -> AutowiredDefinitionBuilder<T> {
         return storeProperty {
@@ -585,7 +583,7 @@ public class AutowiredDefinitionBuilder<T>: DynamicAutowiredDefinitionBuilder {
     /// - Parameter keyPath: Non-optional property KeyPath of the object to make the framework to
     /// automatically inject dependency
     /// - Returns: DefinitionBuilder that can set the dependencies that need to be built after creation
-    public func property<V>(
+    @discardableResult public func property<V>(
         _ keyPath: ReferenceWritableKeyPath<T, V>
     ) -> AutowiredDefinitionBuilder<T> {
         return storeProperty {
@@ -648,7 +646,7 @@ public class DynamicAutowiredDefinitionBuilder: AttributeDefinitionBuilder {
     /// - Parameter propertyName: Property name of the object to make the framework to
     /// automatically inject dependency
     /// - Returns: DefinitionBuilder that can set the dependencies that need to be built after creation
-    @objc public func propertyName(
+    @discardableResult @objc public func propertyName(
         _ propertyName: String
     ) -> DynamicAutowiredDefinitionBuilder {
         if self.definition.propertiesName == nil {
@@ -680,7 +678,7 @@ public class DynamicAutowiredDefinitionBuilder: AttributeDefinitionBuilder {
     /// - Parameter propertiesName: Properties name of the object to make the framework to
     /// automatically inject dependencies
     /// - Returns: DefinitionBuilder that can set the attributes of the object
-    @objc public func propertiesName(
+    @discardableResult @objc public func propertiesName(
         _ propertiesName: [String]
     ) -> AttributeDefinitionBuilder {
         self.definition.propertiesName = propertiesName

@@ -20,43 +20,29 @@ class ModuleTests: XCTestCase {
         
         let module1 = Module(launchOptions: ModuleLaunchOptions(
             delegateClass: TestModuleDelegate.self,
-            items: [
-                ModuleLaunchOptionsItem(lazyLoad: true),
-                ModuleLaunchOptionsItem(priority: .business)
-            ]
+            items: [.lazyLoad(true), .priority(.business)]
         ))
         
-        let priorityValue = ModulePriority.services.rawValue + 1000
-        let priority = ModulePriority(rawValue: priorityValue)!
         let module2 = Module(launchOptions: ModuleLaunchOptions(
             delegateClass: TestModuleDelegate.self,
-            items: [
-                ModuleLaunchOptionsItem(lazyLoad: false),
-                ModuleLaunchOptionsItem(priority: priority)
-            ]
+            items: [.lazyLoad(false), .priority(.cbn.services.increase(999))]
         ))
                              
         let module3 = Module(launchOptions: ModuleLaunchOptions(
             delegateClass: TestModuleDelegate.self,
-            items: [
-                ModuleLaunchOptionsItem(lazyLoad: false),
-                ModuleLaunchOptionsItem(priority: .foundation)
-            ]
+            items: [.lazyLoad(false), .priority(.foundation)]
         ))
                              
         let module4 = Module(launchOptions: ModuleLaunchOptions(
             delegateClass: TestModuleDelegate.self,
-            items: [
-                ModuleLaunchOptionsItem(lazyLoad: true),
-                ModuleLaunchOptionsItem(priority: .system)
-            ]
+            items: [.lazyLoad(true), .priority(.system)]
         ))
                              
         let modules = [module1, module4, module2, module3].sorted {
             $0.comparePriority(to: $1) == .orderedDescending
         }
-        XCTAssertEqual(modules[0], module2)
-        XCTAssertEqual(modules[1], module3)
+        XCTAssertEqual(modules[0], module3)
+        XCTAssertEqual(modules[1], module2)
         XCTAssertEqual(modules[2], module4)
         XCTAssertEqual(modules[3], module1)
     }

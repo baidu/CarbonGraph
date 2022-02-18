@@ -12,7 +12,6 @@ import UIKit
 
 public struct FilePath {
     var path: String = "/"
-    var name: String = ""
 }
 
 class FileModel: NSObject, FileModelProtocol {

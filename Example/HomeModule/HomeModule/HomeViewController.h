@@ -9,10 +9,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@import FileModule;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UIViewController
+
+@property (nonatomic, strong) id<FileManagerProtocol> fileManager;
 
 @end
 

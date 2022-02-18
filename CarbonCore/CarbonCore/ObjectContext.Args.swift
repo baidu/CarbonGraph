@@ -14,7 +14,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg: The constructor or factory's only argument of the object definition
     ///   - name: Name of object definition, If there are multiple definitions of the same type,
     ///   you need to specify the name
@@ -32,7 +32,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - name: Name of object definition, If there are multiple definitions of the same type,
@@ -51,7 +51,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -71,7 +71,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -92,7 +92,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -114,7 +114,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -137,7 +137,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -161,7 +161,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -186,7 +186,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition
@@ -212,7 +212,7 @@ extension ObjectContext {
     /// Resolve the object by type and custom argument of constructor or factory
     ///
     /// - Parameters:
-    ///   - \_:  Type of object definition
+    ///   - \_: Type of object definition
     ///   - arg1: The constructor or factory's 1st argument of the object definition
     ///   - arg2: The constructor or factory's 2nd argument of the object definition
     ///   - arg3: The constructor or factory's 3rd argument of the object definition

@@ -1,6 +1,6 @@
 //
-//  ImageViewFactory.h
-//  BasicModule
+//  ObjCExecuteContext.h
+//  CarbonCoreTests
 //
 //  Copyright (c) Baidu Inc. All rights reserved.
 //
@@ -9,14 +9,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AvatarFactoryProtocol.h"
+@import CarbonCore;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AvatarFactory : NSObject <AvatarFactoryProtocol>
+@interface ObjCExecuteContext : NSObject
 
-@property (nonatomic, strong, readonly) UIImageView *lastImageView;
-@property (nonatomic, strong, readonly) UILabel *lastLabel;
++ (void)registerAvatarFactoryToContext:(CBNObjectContext *)context;
++ (void)registerAccountManagerToContext:(CBNObjectContext *)context;
 
 @end
 

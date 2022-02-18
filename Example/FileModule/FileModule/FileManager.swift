@@ -14,25 +14,18 @@ import CarbonCore
 
 class FileManager: NSObject, FileManagerProtocol {
     
-    func fileModels(_ fileModel: FileModelProtocol? = nil) -> Array<FileModelProtocol> {
-        return []
-    }
-    
     func recentFileModels() -> Array<FileModelProtocol> {
-        // MARK: S8: Protocol defined in Swift, registered in Swift, resolved in Swift
         var fileModels = Array<FileModelProtocol>()
+        // --- Just for testing
         if let fileModel = appContext[FileModelProtocol.self] {
-            fileModel.filePath = "c/d"
-            fileModel.fileName = "test.txt"
+            fileModel.filePath = "Travel/Beijing"
+            fileModel.fileName = "IMG_0162.HEIC"
             fileModels.append(fileModel)
         }
-//        if let fileModel = appContext[FileModelProtocol.self, "/a/b.mp4"] {
-//            fileModels.append(fileModel)
-//        }
-        if let fileModel = appContext[FileModelProtocol.self, "/a/b/", "c.mp4"] {
+        if let fileModel = appContext[FileModelProtocol.self, "Home/NewYear", "IMG_4478.mov"] {
             fileModels.append(fileModel)
         }
-        print("S8: \(String(describing: fileModels))")
+        // ---
         return fileModels
     }
 }

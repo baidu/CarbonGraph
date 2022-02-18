@@ -7,6 +7,7 @@
 //  This source code is licensed under the MIT license.
 //  See LICENSE file in the project root for license information.
 //
+
 import Foundation
 
 /// Basic IOC container
@@ -247,11 +248,11 @@ extension ObjectContext {
     public subscript<T>(_: T.Type, name name: String? = nil) -> T? {
         get {
             let obj: T? = ObjectResolver(self).resolve(ObjectKey(T.self, name)) {$0(self)}
-            if obj == nil {
 #if DEBUG
-            print(debugDescription)
-#endif
+            if obj == nil {
+                print(debugDescription)
             }
+#endif
             return obj
         }
         set { subscriptSetter(ObjectKey(T.self, name), newValue) }
@@ -263,11 +264,11 @@ extension ObjectContext {
         _ invoker: @escaping ((FA) -> Any) -> Any
     ) -> T? {
         let obj: T? = ObjectResolver(self).resolve(ObjectKey(T.self, name, A.self), invoker)
-        if obj == nil {
 #if DEBUG
+        if obj == nil {
             print(debugDescription)
-#endif
         }
+#endif
         return obj
     }
     

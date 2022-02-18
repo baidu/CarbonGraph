@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A35B4E30278420870010E92E /* ModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B4E2F278420870010E92E /* ModuleTests.swift */; };
+		A3911C7127B92B1300293908 /* ObjCCmpatibilityFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3911C7027B92B1300293908 /* ObjCCmpatibilityFoundation.m */; };
+		A3911C7327B92C2200293908 /* SwiftCmpatibilityFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911C7227B92C2200293908 /* SwiftCmpatibilityFoundation.swift */; };
 		A396868A2733CE7F00243DBC /* ScannableStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39686812733CE7E00243DBC /* ScannableStrategy.swift */; };
 		A396868B2733CE7F00243DBC /* ApplicationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39686822733CE7E00243DBC /* ApplicationContext.swift */; };
 		A396868C2733CE7F00243DBC /* ScannableObjectStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39686832733CE7E00243DBC /* ScannableObjectStrategy.swift */; };
@@ -19,6 +21,12 @@
 		A39686922733CE7F00243DBC /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39686892733CE7E00243DBC /* Application.swift */; };
 		A3AB0CF1273E5A7F009B00CA /* AnimalKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB0CF0273E5A7F009B00CA /* AnimalKeeper.swift */; };
 		A3AB0CF3273E6555009B00CA /* ObjectContextStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB0CF2273E6555009B00CA /* ObjectContextStructTests.swift */; };
+		A3CDB5F027B6426100586829 /* SwiftCmpatibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDB5EF27B6426100586829 /* SwiftCmpatibilityTests.swift */; };
+		A3CDB5F227B6427200586829 /* ObjCCmpatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CDB5F127B6427200586829 /* ObjCCmpatibilityTests.m */; };
+		A3CDB5F827B658BE00586829 /* ObjCExecuteContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CDB5F727B658BE00586829 /* ObjCExecuteContext.m */; };
+		A3CDB5FA27B658D800586829 /* SwiftExecuteContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDB5F927B658D800586829 /* SwiftExecuteContext.swift */; };
+		A3E323FB27B26A9E00942446 /* ObjectContext.Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E323FA27B26A9E00942446 /* ObjectContext.Convenience.swift */; };
+		A3E323FD27B26D9300942446 /* ObjectContextConvenienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E323FC27B26D9300942446 /* ObjectContextConvenienceTests.swift */; };
 		A3E7036C271EC18A00D1CAE5 /* CarbonCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = A3E7036B271EC18A00D1CAE5 /* CarbonCore.docc */; };
 		A3E70372271EC18B00D1CAE5 /* CarbonCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E70367271EC18A00D1CAE5 /* CarbonCore.framework */; };
 		A3E70396271EC26300D1CAE5 /* ObjectResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70381271EC26300D1CAE5 /* ObjectResolver.swift */; };
@@ -47,7 +55,7 @@
 		A3E70439271EC4C200D1CAE5 /* FileModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7041F271EC4C200D1CAE5 /* FileModelProtocol.swift */; };
 		A3E7043A271EC4C200D1CAE5 /* AnimalSameServiceModuleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70420271EC4C200D1CAE5 /* AnimalSameServiceModuleDelegate.swift */; };
 		A3E7043B271EC4C200D1CAE5 /* ConfigurationBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70422271EC4C200D1CAE5 /* ConfigurationBuilderTests.swift */; };
-		A3E7043C271EC4C200D1CAE5 /* Circularity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70423271EC4C200D1CAE5 /* Circularity.swift */; };
+		A3E7043C271EC4C200D1CAE5 /* CircularityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70423271EC4C200D1CAE5 /* CircularityTests.swift */; };
 		A3E7043D271EC4C200D1CAE5 /* ObjectContextMultipleThreadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70424271EC4C200D1CAE5 /* ObjectContextMultipleThreadsTests.swift */; };
 		A3E7043E271EC4C200D1CAE5 /* ObjectContextConstructorArgumentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70425271EC4C200D1CAE5 /* ObjectContextConstructorArgumentsTests.swift */; };
 		A3E7043F271EC4C200D1CAE5 /* ObjectKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E70426271EC4C200D1CAE5 /* ObjectKeyTests.swift */; };
@@ -57,7 +65,7 @@
 		A3E70443271EC4C200D1CAE5 /* ObjectContextCircularityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7042A271EC4C200D1CAE5 /* ObjectContextCircularityTests.swift */; };
 		A3E70444271EC4C200D1CAE5 /* ObjectContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7042B271EC4C200D1CAE5 /* ObjectContextTests.swift */; };
 		A3E70445271EC4C200D1CAE5 /* ObjectContextFactoryArgumentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7042C271EC4C200D1CAE5 /* ObjectContextFactoryArgumentsTests.swift */; };
-		A3E70446271EC4C200D1CAE5 /* ObjectContextTestsOC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7042D271EC4C200D1CAE5 /* ObjectContextTestsOC.m */; };
+		A3E70446271EC4C200D1CAE5 /* ObjectContextObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7042D271EC4C200D1CAE5 /* ObjectContextObjCTests.m */; };
 		A3E70449271EC68500D1CAE5 /* CBNComputer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E70447271EC68400D1CAE5 /* CBNComputer.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +81,9 @@
 
 /* Begin PBXFileReference section */
 		A35B4E2F278420870010E92E /* ModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTests.swift; sourceTree = "<group>"; };
+		A3911C6F27B92B1200293908 /* ObjCCmpatibilityFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCCmpatibilityFoundation.h; sourceTree = "<group>"; };
+		A3911C7027B92B1300293908 /* ObjCCmpatibilityFoundation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCCmpatibilityFoundation.m; sourceTree = "<group>"; };
+		A3911C7227B92C2200293908 /* SwiftCmpatibilityFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCmpatibilityFoundation.swift; sourceTree = "<group>"; };
 		A39686812733CE7E00243DBC /* ScannableStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannableStrategy.swift; sourceTree = "<group>"; };
 		A39686822733CE7E00243DBC /* ApplicationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationContext.swift; sourceTree = "<group>"; };
 		A39686832733CE7E00243DBC /* ScannableObjectStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannableObjectStrategy.swift; sourceTree = "<group>"; };
@@ -84,6 +95,13 @@
 		A39686892733CE7E00243DBC /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		A3AB0CF0273E5A7F009B00CA /* AnimalKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalKeeper.swift; sourceTree = "<group>"; };
 		A3AB0CF2273E6555009B00CA /* ObjectContextStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectContextStructTests.swift; sourceTree = "<group>"; };
+		A3CDB5EF27B6426100586829 /* SwiftCmpatibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCmpatibilityTests.swift; sourceTree = "<group>"; };
+		A3CDB5F127B6427200586829 /* ObjCCmpatibilityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCCmpatibilityTests.m; sourceTree = "<group>"; };
+		A3CDB5F627B658BE00586829 /* ObjCExecuteContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCExecuteContext.h; sourceTree = "<group>"; };
+		A3CDB5F727B658BE00586829 /* ObjCExecuteContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCExecuteContext.m; sourceTree = "<group>"; };
+		A3CDB5F927B658D800586829 /* SwiftExecuteContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExecuteContext.swift; sourceTree = "<group>"; };
+		A3E323FA27B26A9E00942446 /* ObjectContext.Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContext.Convenience.swift; sourceTree = "<group>"; };
+		A3E323FC27B26D9300942446 /* ObjectContextConvenienceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextConvenienceTests.swift; sourceTree = "<group>"; };
 		A3E70367271EC18A00D1CAE5 /* CarbonCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarbonCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E7036B271EC18A00D1CAE5 /* CarbonCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CarbonCore.docc; sourceTree = "<group>"; };
 		A3E70371271EC18B00D1CAE5 /* CarbonCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +133,7 @@
 		A3E70420271EC4C200D1CAE5 /* AnimalSameServiceModuleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalSameServiceModuleDelegate.swift; sourceTree = "<group>"; };
 		A3E70421271EC4C200D1CAE5 /* OCProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCProtocol.h; sourceTree = "<group>"; };
 		A3E70422271EC4C200D1CAE5 /* ConfigurationBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationBuilderTests.swift; sourceTree = "<group>"; };
-		A3E70423271EC4C200D1CAE5 /* Circularity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circularity.swift; sourceTree = "<group>"; };
+		A3E70423271EC4C200D1CAE5 /* CircularityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularityTests.swift; sourceTree = "<group>"; };
 		A3E70424271EC4C200D1CAE5 /* ObjectContextMultipleThreadsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextMultipleThreadsTests.swift; sourceTree = "<group>"; };
 		A3E70425271EC4C200D1CAE5 /* ObjectContextConstructorArgumentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextConstructorArgumentsTests.swift; sourceTree = "<group>"; };
 		A3E70426271EC4C200D1CAE5 /* ObjectKeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectKeyTests.swift; sourceTree = "<group>"; };
@@ -125,7 +143,7 @@
 		A3E7042A271EC4C200D1CAE5 /* ObjectContextCircularityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextCircularityTests.swift; sourceTree = "<group>"; };
 		A3E7042B271EC4C200D1CAE5 /* ObjectContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextTests.swift; sourceTree = "<group>"; };
 		A3E7042C271EC4C200D1CAE5 /* ObjectContextFactoryArgumentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectContextFactoryArgumentsTests.swift; sourceTree = "<group>"; };
-		A3E7042D271EC4C200D1CAE5 /* ObjectContextTestsOC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectContextTestsOC.m; sourceTree = "<group>"; };
+		A3E7042D271EC4C200D1CAE5 /* ObjectContextObjCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectContextObjCTests.m; sourceTree = "<group>"; };
 		A3E70447271EC68400D1CAE5 /* CBNComputer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNComputer.m; sourceTree = "<group>"; };
 		A3E70448271EC68500D1CAE5 /* CBNComputer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNComputer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,7 +195,8 @@
 		A3AB0CEE273E535F009B00CA /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				A3E7042D271EC4C200D1CAE5 /* ObjectContextTestsOC.m */,
+				A3CDB5F127B6427200586829 /* ObjCCmpatibilityTests.m */,
+				A3E7042D271EC4C200D1CAE5 /* ObjectContextObjCTests.m */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
@@ -188,6 +207,10 @@
 				A3E70412271EC4C100D1CAE5 /* CarbonCoreTests-Bridging-Header.h */,
 				A3E70448271EC68500D1CAE5 /* CBNComputer.h */,
 				A3E70447271EC68400D1CAE5 /* CBNComputer.m */,
+				A3911C6F27B92B1200293908 /* ObjCCmpatibilityFoundation.h */,
+				A3911C7027B92B1300293908 /* ObjCCmpatibilityFoundation.m */,
+				A3CDB5F627B658BE00586829 /* ObjCExecuteContext.h */,
+				A3CDB5F727B658BE00586829 /* ObjCExecuteContext.m */,
 				A3E70421271EC4C200D1CAE5 /* OCProtocol.h */,
 			);
 			path = ObjC;
@@ -222,6 +245,7 @@
 				A3E70390271EC26300D1CAE5 /* DefinitionBuilder.swift */,
 				A3E70384271EC26300D1CAE5 /* GroupDefinitionBuilder.swift */,
 				A3E70387271EC26300D1CAE5 /* ObjectContext.Args.swift */,
+				A3E323FA27B26A9E00942446 /* ObjectContext.Convenience.swift */,
 				A3E70383271EC26300D1CAE5 /* ObjectContext.swift */,
 				A3E7038A271EC26300D1CAE5 /* ObjectDefinition.swift */,
 				A3E7038F271EC26300D1CAE5 /* ObjectKey.swift */,
@@ -238,11 +262,12 @@
 				A35B4E2E278420560010E92E /* ApplicationContext */,
 				A3E70416271EC4C200D1CAE5 /* Foundation */,
 				A3AB0CEE273E535F009B00CA /* ObjC */,
-				A3E70423271EC4C200D1CAE5 /* Circularity.swift */,
+				A3E70423271EC4C200D1CAE5 /* CircularityTests.swift */,
 				A3E70422271EC4C200D1CAE5 /* ConfigurationBuilderTests.swift */,
 				A3E7042A271EC4C200D1CAE5 /* ObjectContextCircularityTests.swift */,
 				A3E70425271EC4C200D1CAE5 /* ObjectContextConstructorArgumentsTests.swift */,
 				A3E70427271EC4C200D1CAE5 /* ObjectContextConstructorFactoryArgumentsTests.swift */,
+				A3E323FC27B26D9300942446 /* ObjectContextConvenienceTests.swift */,
 				A3E7042C271EC4C200D1CAE5 /* ObjectContextFactoryArgumentsTests.swift */,
 				A3E70424271EC4C200D1CAE5 /* ObjectContextMultipleThreadsTests.swift */,
 				A3E70414271EC4C200D1CAE5 /* ObjectContextPropertyTests.swift */,
@@ -252,6 +277,7 @@
 				A3E70426271EC4C200D1CAE5 /* ObjectKeyTests.swift */,
 				A3E70415271EC4C200D1CAE5 /* ScannerTest.swift */,
 				A3E70428271EC4C200D1CAE5 /* StorageTests.swift */,
+				A3CDB5EF27B6426100586829 /* SwiftCmpatibilityTests.swift */,
 			);
 			path = CarbonCoreTests;
 			sourceTree = "<group>";
@@ -262,15 +288,17 @@
 				A3AB0CEF273E5761009B00CA /* ObjC */,
 				A3E7041D271EC4C200D1CAE5 /* Animal.swift */,
 				A3E70418271EC4C200D1CAE5 /* AnimalByNameModuleDelegate.swift */,
+				A3AB0CF0273E5A7F009B00CA /* AnimalKeeper.swift */,
 				A3E70420271EC4C200D1CAE5 /* AnimalSameServiceModuleDelegate.swift */,
 				A3E7041C271EC4C200D1CAE5 /* AnimalScopeSingletonModuleDelegate.swift */,
 				A3E70417271EC4C200D1CAE5 /* AnimalScopeWeakModuleDelegate.swift */,
 				A3E7041B271EC4C200D1CAE5 /* Car.swift */,
-				A3AB0CF0273E5A7F009B00CA /* AnimalKeeper.swift */,
 				A3E70419271EC4C200D1CAE5 /* FileModel.swift */,
 				A3E7041F271EC4C200D1CAE5 /* FileModelProtocol.swift */,
 				A3E7041E271EC4C200D1CAE5 /* Food.swift */,
 				A3E7041A271EC4C200D1CAE5 /* Person.swift */,
+				A3911C7227B92C2200293908 /* SwiftCmpatibilityFoundation.swift */,
+				A3CDB5F927B658D800586829 /* SwiftExecuteContext.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -384,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E323FB27B26A9E00942446 /* ObjectContext.Convenience.swift in Sources */,
 				A3E70396271EC26300D1CAE5 /* ObjectResolver.swift in Sources */,
 				A396868B2733CE7F00243DBC /* ApplicationContext.swift in Sources */,
 				A39686922733CE7F00243DBC /* Application.swift in Sources */,
@@ -413,9 +442,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3911C7127B92B1300293908 /* ObjCCmpatibilityFoundation.m in Sources */,
 				A3E70443271EC4C200D1CAE5 /* ObjectContextCircularityTests.swift in Sources */,
 				A3E7043E271EC4C200D1CAE5 /* ObjectContextConstructorArgumentsTests.swift in Sources */,
 				A3E7043F271EC4C200D1CAE5 /* ObjectKeyTests.swift in Sources */,
+				A3CDB5F027B6426100586829 /* SwiftCmpatibilityTests.swift in Sources */,
+				A3CDB5F227B6427200586829 /* ObjCCmpatibilityTests.m in Sources */,
 				A35B4E30278420870010E92E /* ModuleTests.swift in Sources */,
 				A3E70437271EC4C200D1CAE5 /* Animal.swift in Sources */,
 				A3E7042E271EC4C200D1CAE5 /* ApplicationTests.swift in Sources */,
@@ -425,19 +457,23 @@
 				A3E70439271EC4C200D1CAE5 /* FileModelProtocol.swift in Sources */,
 				A3E7043A271EC4C200D1CAE5 /* AnimalSameServiceModuleDelegate.swift in Sources */,
 				A3E70433271EC4C200D1CAE5 /* FileModel.swift in Sources */,
+				A3E323FD27B26D9300942446 /* ObjectContextConvenienceTests.swift in Sources */,
 				A3AB0CF1273E5A7F009B00CA /* AnimalKeeper.swift in Sources */,
 				A3E70440271EC4C200D1CAE5 /* ObjectContextConstructorFactoryArgumentsTests.swift in Sources */,
-				A3E7043C271EC4C200D1CAE5 /* Circularity.swift in Sources */,
+				A3E7043C271EC4C200D1CAE5 /* CircularityTests.swift in Sources */,
+				A3911C7327B92C2200293908 /* SwiftCmpatibilityFoundation.swift in Sources */,
 				A3E70438271EC4C200D1CAE5 /* Food.swift in Sources */,
 				A3E70430271EC4C200D1CAE5 /* ScannerTest.swift in Sources */,
 				A3E70445271EC4C200D1CAE5 /* ObjectContextFactoryArgumentsTests.swift in Sources */,
+				A3CDB5F827B658BE00586829 /* ObjCExecuteContext.m in Sources */,
 				A3E70435271EC4C200D1CAE5 /* Car.swift in Sources */,
 				A3E70432271EC4C200D1CAE5 /* AnimalByNameModuleDelegate.swift in Sources */,
 				A3E7043D271EC4C200D1CAE5 /* ObjectContextMultipleThreadsTests.swift in Sources */,
 				A3E70444271EC4C200D1CAE5 /* ObjectContextTests.swift in Sources */,
+				A3CDB5FA27B658D800586829 /* SwiftExecuteContext.swift in Sources */,
 				A3E70434271EC4C200D1CAE5 /* Person.swift in Sources */,
 				A3E7043B271EC4C200D1CAE5 /* ConfigurationBuilderTests.swift in Sources */,
-				A3E70446271EC4C200D1CAE5 /* ObjectContextTestsOC.m in Sources */,
+				A3E70446271EC4C200D1CAE5 /* ObjectContextObjCTests.m in Sources */,
 				A3E70449271EC68500D1CAE5 /* CBNComputer.m in Sources */,
 				A3E70441271EC4C200D1CAE5 /* StorageTests.swift in Sources */,
 				A3E7042F271EC4C200D1CAE5 /* ObjectContextPropertyTests.swift in Sources */,

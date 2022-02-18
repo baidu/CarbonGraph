@@ -1,5 +1,5 @@
 //
-//  ObjectContextTestsOC.m
+//  ObjectContextObjCTests.m
 //  CarbonCoreTests
 //
 //  Copyright (c) Baidu Inc. All rights reserved.
@@ -15,13 +15,13 @@
 
 @import CarbonCore;
 
-@interface ObjectContextTestsOC : XCTestCase
+@interface ObjectContextObjCTests : XCTestCase
 
-@property(nonatomic, strong) CBNApplicationContext *context;
+@property (nonatomic, strong) CBNApplicationContext *context;
 
 @end
 
-@implementation ObjectContextTestsOC
+@implementation ObjectContextObjCTests
 
 - (void)setUp {
     _context = [[CBNApplicationContext alloc] initWithDefaultScope:CBNObjectScope.prototype moduleScan:NO];
@@ -128,6 +128,20 @@
     XCTAssertTrue([computer.cpu isKindOfClass:[Intel class]]);
     XCTAssertTrue([computer.os isKindOfClass:[MacOS class]]);
     
+}
+
+- (void)testConvenienceRegister {
+    [_context cbn_registerWithProtocol:@protocol(UITabBarDelegate) cls:UITabBarController.class name:@"root"];
+    [_context cbn_registerWithProtocol:@protocol(UITabBarDelegate) cls:UITabBarController.class];
+    [_context cbn_registerWithCls:UITabBarController.class name:@"root"];
+    id vc1 = [_context objectWithProtocol:@protocol(UITabBarDelegate) name:@"root"];
+    XCTAssertNotNil(vc1);
+    id vc2 = _context[@protocol(UITabBarDelegate)];
+    XCTAssertNotNil(vc2);
+    id vc3 = [_context objectWithProtocol:@protocol(NSObject) name:@"root"];
+    XCTAssertNotNil(vc3);
+    XCTAssertNotIdentical(vc1, vc2);
+    XCTAssertNotIdentical(vc2, vc3);
 }
 
 @end

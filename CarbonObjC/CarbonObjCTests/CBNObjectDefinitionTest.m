@@ -114,10 +114,10 @@
         .cls(PetOwner.class)
         .scope(CBNObjectScope.prototype)
         .completed(^void(CBNObjectContext *ctx, NSObject *obj){
-            NSLog(@"Carbon resolve completed scop 1: %@", obj);
+            NSLog(@"Resolving complete 1: %@", obj);
         })
         .completed(^void(CBNObjectContext *ctx, NSObject *obj){
-            NSLog(@"Carbon resolve completed scop 2: %@", obj);
+            NSLog(@"Resolving complete 2: %@", obj);
         });
         
     }];

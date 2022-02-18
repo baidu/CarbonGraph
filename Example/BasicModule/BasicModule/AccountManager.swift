@@ -13,8 +13,7 @@ import UIKit
 @objc public class AccountManager: NSObject, AccountManagerProtocol {
     
     private override init() {
-        // Login with 65803387
-        accountInfo = AccountModel(name: "65803387", avatarImage: UIImage(named: "avatar"), paymentType: .svip)
+        accountInfo = AccountModel(name: "CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can use it to build loose coupling between modules.", avatarImage: UIImage(named: "launch_screen"), paymentType: .svip)
     }
     
     @objc public static func shared() -> AccountManager {

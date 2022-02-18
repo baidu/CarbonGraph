@@ -63,7 +63,16 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 @implementation CBNObjectDefinition
 
 + (DefinitionBuilder *)define:(void (^)(CBNKeyDefinitionBuilder * _Nonnull builder))block {
-    KeyDefinitionBuilder *builder = [[KeyDefinitionBuilder alloc] init];
+    return [self defineWithName:nil config:block];
+}
+
++ (DefinitionBuilder *)define:(void(^)(CBNKeyDefinitionBuilder *builder))block
+                         name:(NSString *)name {
+    return [self defineWithName:name config:block];
+}
+
++ (DefinitionBuilder *)defineWithName:(NSString *)name config:(void (^)(CBNKeyDefinitionBuilder * _Nonnull builder))block {
+    KeyDefinitionBuilder *builder = [[KeyDefinitionBuilder alloc] initWithName:name];
     CBNObjectDefinition *definition = [[CBNObjectDefinition alloc] initWithBuilder:builder];
     CBNKeyDefinitionBuilder *keyBuilder = [[CBNKeyDefinitionBuilder alloc] init];
     keyBuilder.delegate = definition;
@@ -81,12 +90,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 }
 
 - (void)final {
-    [self defineBuild];
-    [self registerService];
-}
-
-- (void)defineBuild {
-
+    if (!self.defineProtocol) {
+        self.defineProtocol = @protocol(NSObject);
+    }
     id builder = [[self.builder protocol:self.defineProtocol]
                      alias:self.defineAliasProtocols];
     
@@ -104,11 +110,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
     }
     
     if (self.defineCompleted && [builder isKindOfClass:[ActionDefinitionBuilder class]]) {
-           [(ActionDefinitionBuilder *)builder completed:self.defineCompleted];
-       }
-}
-
-- (void)registerService {
+        [(ActionDefinitionBuilder *)builder completed:self.defineCompleted];
+    }
+    
     [Application.sharedApplication.context registerWithBuilder:self.builder];
 }
 
@@ -194,9 +198,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNAliasDefinitionBuilder *)defineProtocol:(Protocol *)p {
     [self.delegate attachAttributes:p type:CBNDefinitionAttributeTypeProtocol];
-    CBNAliasDefinitionBuilder *newbuilder = [[CBNAliasDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNAliasDefinitionBuilder *newBuilder = [[CBNAliasDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end
@@ -213,9 +217,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNAutowiredDefinitionBuilder *)defineClass:(Class)cls {
     [self.delegate attachAttributes:cls type:CBNDefinitionAttributeTypeClass];
-    CBNAutowiredDefinitionBuilder *newbuilder =[[CBNAutowiredDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNAutowiredDefinitionBuilder *newBuilder =[[CBNAutowiredDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end
@@ -231,9 +235,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNClassFactoryDefinitionBuilder *)defineFactory:(CBNFactoryDefineCompleted)blk {
     [self.delegate attachAttributes:blk type:CBNDefinitionAttributeTypeFactory];
-    CBNClassFactoryDefinitionBuilder *newbuilder = [[CBNClassFactoryDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNClassFactoryDefinitionBuilder *newBuilder = [[CBNClassFactoryDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end
@@ -256,16 +260,16 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNAliasDefinitionBuilder *)defineAliasProtocol:(Protocol *)protocol {
     [self.delegate attachAttributes:protocol type:CBNDefinitionAttributeTypeAliasProtocol];
-    CBNAliasDefinitionBuilder *newbuilder = [[CBNAliasDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNAliasDefinitionBuilder *newBuilder = [[CBNAliasDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 - (CBNFactoryDefinitionBuilder *)defineAlias:(NSArray<Protocol *> *)protocols {
     [self.delegate attachAttributes:protocols type:CBNDefinitionAttributeTypeAliasProtocols];
-    CBNFactoryDefinitionBuilder *newbuilder = [[CBNFactoryDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNFactoryDefinitionBuilder *newBuilder = [[CBNFactoryDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end
@@ -288,16 +292,16 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNAutowiredDefinitionBuilder *)defineProperty:(NSString *)propertyName {
     [self.delegate attachAttributes:propertyName type:CBNDefinitionAttributeTypePropertyName];
-    CBNAutowiredDefinitionBuilder *newbuilder = [[CBNAutowiredDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNAutowiredDefinitionBuilder *newBuilder = [[CBNAutowiredDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 - (CBNAttributeDefinitionBuilder *)definePropertiesName:(NSArray<NSString *> *)propertiesName {
     [self.delegate attachAttributes:propertiesName type:CBNDefinitionAttributeTypePropertiesName];
-    CBNAttributeDefinitionBuilder *newbuilder = [[CBNAttributeDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNAttributeDefinitionBuilder *newBuilder = [[CBNAttributeDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end
@@ -332,9 +336,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNActionDefinitionBuilder *)defineScope:(CBNObjectScope *)scope {
     [self.delegate attachAttributes:scope type:CBNDefinitionAttributeTypeScope];
-    CBNActionDefinitionBuilder *newbuilder = [[CBNActionDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNActionDefinitionBuilder *newBuilder = [[CBNActionDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end
@@ -351,9 +355,9 @@ typedef NS_ENUM(NSUInteger, CBNDefinitionAttributeType) {
 
 - (CBNActionDefinitionBuilder *)defineCompleted:(CBNDefineCompleted)block {
     [self.delegate attachAttributes:block type:CBNDefinitionAttributeTypeCompleted];
-    CBNActionDefinitionBuilder *newbuilder = [[CBNActionDefinitionBuilder alloc] init];
-    newbuilder.delegate = self.delegate;
-    return newbuilder;
+    CBNActionDefinitionBuilder *newBuilder = [[CBNActionDefinitionBuilder alloc] init];
+    newBuilder.delegate = self.delegate;
+    return newBuilder;
 }
 
 @end

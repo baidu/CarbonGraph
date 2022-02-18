@@ -28,7 +28,7 @@ class AnimalScopeSingletonModuleDelegate: ScannableModuleConfiguration {
     }
     
     static func launchOptions() -> [ModuleLaunchOptionsItem] {
-        [ModuleLaunchOptionsItem(priority: .business)]
+        [.priority(.business)]
     }
     
     func moduleDidFinishLaunching(_ module: Module) {

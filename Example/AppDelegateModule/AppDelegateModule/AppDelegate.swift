@@ -22,19 +22,16 @@ public class AppDelegate: UIResponder, UIApplicationDelegate  {
         
         var viewControllers = Array<UIViewController>();
         
-        if let homeVCService = appContext[HomeVCServiceProtocol.self] {
-            viewControllers.append(homeVCService.homeViewController())
+        if let homeVC = appContext[NSObjectProtocol.self, name: "homevc"] as? UIViewController {
+            viewControllers.append(homeVC)
         }
         
-        
-        // MARK: S4: Protocol defined in ObjC, registered in Swift, resolved in Swift
-        if let fileVC = appContext[FileViewControllerProtocol.self] as? UIViewController {
+        if let fileVC = appContext[NSObjectProtocol.self, name: "filevc"] as? UIViewController {
             viewControllers.append(fileVC)
-            print("S4: \(String(describing: fileVC))")
         }
         
-        if let meVCService = appContext[MeVCServiceProtocol.self] {
-            viewControllers.append(meVCService.meViewController())
+        if let meVC = appContext[NSObjectProtocol.self, name: "mevc"] as? UIViewController {
+            viewControllers.append(meVC)
         }
         
         let tabBarController = UITabBarController(nibName: nil, bundle: nil)
@@ -44,10 +41,6 @@ public class AppDelegate: UIResponder, UIApplicationDelegate  {
         window?.rootViewController = tabBarController;
         window?.makeKeyAndVisible()
         
-        
-        // MARK: S6: Protocol defined in Swift, registered in ObjC, resolved in Swift
-        let accountManager = appContext[AccountManagerProtocol.self]
-        print("S6: \(String(describing: accountManager))")
         return true
     }
     
