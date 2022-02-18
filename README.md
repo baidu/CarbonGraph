@@ -150,7 +150,7 @@ static func fileModel(context: ObjectContext, path: String, name: String) -> Fil
 }
 ```
 
-For more information see [Basic usage](./CarbonCore/CarbonCore/CarbonCore.docc/Basic\ usage.md)
+For more information see [Basic usage](./CarbonCore/CarbonCore/CarbonCore.docc/BasicUsage.md)
 
 ## Documentation
 

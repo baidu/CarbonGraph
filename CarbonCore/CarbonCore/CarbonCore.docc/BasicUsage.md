@@ -164,6 +164,6 @@ static func fileModel(context: ObjectContext, path: String, name: String) -> Fil
 
 ## See Also
 
-- <doc:Advanced-usage>
+- <doc:AdvancedUsage>
 
-- <doc:Module-management>
+- <doc:ModuleManagement>

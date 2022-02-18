@@ -102,4 +102,4 @@ Object resolving is thread-safe, but registration methods are currently not thre
 
 ## See Also
 
-- <doc:Module-management>
+- <doc:ModuleManagement>
