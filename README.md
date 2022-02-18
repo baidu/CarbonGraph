@@ -49,7 +49,7 @@ For more information see [Compatibility](./CarbonCore/CarbonCore/CarbonCore.docc
 
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate CarbonGraph into your Xcode project using CocoaPods, specify it in your Podfile:
 
-> pod 'CarbonCore', '~> 1.3.0'
+> pod 'CarbonCore', '~> 1.3.1'
 
 ## Quick Start
 
