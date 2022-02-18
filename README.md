@@ -113,7 +113,7 @@ context[FileViewControllerProtocol.self].fileManager
 Definition()
     .protocol(FileViewControllerProtocol.self)
     .object(FileViewController())
-    .setter(FileViewController.setFileManager)
+    .setter(FileViewController.setFileManager(fileManager:))
 context[FileViewControllerProtocol.self].fileManager
 ```
 
