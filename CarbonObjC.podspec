@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name     = 'CarbonObjC'
-  spec.version  = '1.3.0'
+  spec.version  = '1.3.1'
   spec.license  = { :type => 'MIT', :file => 'LICENSE' }
   spec.homepage = 'https://github.com/baidu/CarbonGraph'
   spec.authors  = { 'Baidu' => 'carbon-core@baidu.com' }

@@ -8,14 +8,14 @@ The Requirements and Compatibility
 
 | CarbonCore Stable Version | Required iOS Version | Required Swift Version |
 | --- | --- | --- |
-| 1.2.2 - 1.3.0 | 9.0 | 5.2 |
+| 1.2.2, 1.3.1 | 9.0 | 5.2 |
 
 ### CarbonObjC Version Compatibility
 
 | CarbonObjC Version | CarbonCore Compatible Version |
 | --- | --- |
 | 1.2.2 | 1.2.2 |
-| 1.3.0 | 1.3.0 |
+| 1.3.1 | 1.3.1 |
 
 ### Build for distribution
 

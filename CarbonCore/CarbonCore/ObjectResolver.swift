@@ -45,7 +45,7 @@ public class ObjectResolver: NSObject {
         }
         
         // Object created by other thread
-        if let safeObject = (def.lock.read { def.storage.object }),
+        if let safeObject = def.storage.object,
            let otherObject = safeObject as? T {
             return otherObject
         }
@@ -126,7 +126,7 @@ public class ObjectResolver: NSObject {
         }
         
         // Object created by factory or constructor
-        if let safeObject = (def.lock.read { def.storage.object }),
+        if let safeObject = def.storage.object,
            let otherObject = safeObject as? T {
             return otherObject
         }
