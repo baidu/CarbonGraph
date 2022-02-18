@@ -16,32 +16,6 @@ public typealias Definitions = [DefinitionBuilder]
 /// DefinitionBuilder is a DSL Syntax used to build ObjectDefinition
 ///
 /// ObjectDefinition is the definition of the object and stores the data needed to resolve the object.
-///
-/// These data are divided into 4 types:
-/// * Key: The unique identifier of the object definition, used to locate
-/// * Factory: The closure used to create the object and the dependencies that need to be built during creation
-/// * Autowired: Dependencies that need to be built after creation
-/// * Configuration: Other configuration of the object
-///
-/// DefinitionBuilder has 10 subclasses. Each subclass is used to set a type of ObjectDefinition data.
-///
-/// Their corresponding relationship is as follows:
-/// * Key: ``KeyDefinitionBuilder``, ``AliasDefinitionBuilder``,
-/// ``DynamicAliasDefinitionBuilder``
-/// * Factory: ``FactoryDefinitionBuilder``, ``DynamicFactoryDefinitionBuilder``,
-/// ``DynamicClassDefinitionBuilder``
-/// * Autowired: ``AutowiredDefinitionBuilder``, ``DynamicAutowiredDefinitionBuilder``
-/// * Configuration: ``AttributeDefinitionBuilder``, ``ActionDefinitionBuilder``
-///
-/// The method of each DefinitionBuilder controls which methods can be used in the next step by controlling
-/// the returned DefinitionBuilder type. So you can only complete an ObjectDefinition in a set order.
-/// Each DefinitionBuilder controls which settings can be omitted by controlling the inheritance relationship.
-///
-/// The specifications are as follows, '>' means order, italics means it can be omitted. It doesn't matter
-/// if you are confused, the compiler will tell you the correct way.
-///
-/// * *Key* > *Alias* > Factory > *Autowired* > *Attribute* > *Action*
-/// * Key > *DynamicAlias* > *DynamicFactory* > DynamicClass  > *DynamicAutowired* > *Attribute* > *Action*
 public class DefinitionBuilder: NSObject {
     
     let definition: ObjectDefinition

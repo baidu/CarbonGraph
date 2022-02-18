@@ -1,8 +1,7 @@
-![Logo Banner Light](./Images/logo_banner-light.svg#gh-light-mode-only)
-![Logo Banner Dark](./Images/logo_banner-dark.svg#gh-dark-mode-only)
+![Logo Banner Light](./Images/logo_banner.svg#gh-light-mode-only)
+![Logo Banner Dark](./Images/logo_banner~dark.svg#gh-dark-mode-only)
 
 ![Github Workflow](https://img.shields.io/github/workflow/status/baidu/CarbonGraph/build/main?style=flat-square)&nbsp;
-![Codecov](https://img.shields.io/codecov/c/github/baidu/CarbonGraph?style=flat-square)
 ![Swift Version](https://img.shields.io/badge/Swift-5.2--5.5-orange?style=flat-square)&nbsp;
 ![CocoaPods Version](https://img.shields.io/cocoapods/v/CarbonCore?style=flat-square)&nbsp;
 ![Platforms](https://img.shields.io/cocoapods/p/CarbonCore?style=flat-square)&nbsp;
@@ -10,9 +9,11 @@
 
 CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can use it to build loose coupling between modules.
 
+The CarbonGraph project contains 2 frameworks:
+
 | Framework | Description |
 | --- | --- |
-| CarbonCore | The main implementation of CarbonGraph |
+| CarbonCore | Focused specifically on core DI implementations |
 | CarbonObjC | CarbonCore's ObjC adaptation framework |
 
 ## Features
@@ -29,82 +30,73 @@ CarbonGraph is a Swift dependency injection / lookup framework for iOS. You can 
 
 ## Requirements
 
-| CarbonGraph Stable Version | Required iOS Version | Required Swift Version |
+* CarbonCore Requirements
+
+| CarbonCore Stable Version | Required iOS Version | Required Swift Version |
 | --- | --- | --- |
-| 1.2.2 | 9.0 | 5.2 |
+| 1.2.2 - 1.3.0 | 9.0 | 5.2 |
 
-### Compatibility
+* CarbonObjC Version Compatibility
 
-| Xcode Version | Swift Version | MacOS Version | Build for distribution |
-| --- | --- | --- | --- |
-| 11.4 | 5.2 | Catalina 10.15.7 | passing |
-| 12.1 | 5.3 | Catalina 10.15.7 | passing |
-| 12.4 | 5.3.2 | Catalina 10.15.7 | passing |
-| ~~12.5~~ | ~~5.4~~ | ~~Big Sur 11.6~~ | ~~error~~ |
-| ~~12.5.1~~ | ~~5.4.2~~ | ~~Big Sur 11.6~~ | ~~error~~ |
-| 13.0 | 5.5 | Big Sur 11.6 | passing |
+| CarbonObjC Version | CarbonCore Compatible Version |
+| --- | --- |
+| 1.2.2 | 1.2.2 |
+| 1.3.0 | 1.3.0 |
+
+For more information see [Compatibility](./CarbonCore/CarbonCore/CarbonCore.docc/Compatibility.md)
 
 ## Installation
 
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate CarbonGraph into your Xcode project using CocoaPods, specify it in your Podfile:
 
-> pod 'CarbonCore', '~> 1.2.2'
+> pod 'CarbonCore', '~> 1.3.0'
 
-## Basic Usage
+## Quick Start
 
 * Basic object registration and resolving
 ```swift
-let context = ApplicationContext()
-context.register(builder: Definition().object(FilePath()))
-appContext[FilePath.self]
+let context = ObjectContext()
+let definitionBuilder = Definition("filevc")
+    .protocol(UIViewController.self)
+    .object(FileViewController())
+context.register(builder: definitionBuilder)
+context[UIViewController.self, name: "filevc"]
+```
+
+```swift
+let context = ObjectContext()
+let definitionBuilder = Definition()
+    .object(FileManager() as FileManagerProtocol)
+context.register(builder: definitionBuilder)
+context[FileManagerProtocol.self]
 ```
 
 * Use configuration batch registration
 ```swift
-class MyConfiguration: ScannableObject, Configuration {
-    static func definitions() -> Definitions {
+class MyConfiguration: Configuration {
+    static func definitions(of context: ObjectContext) -> Definitions {
         Definition()
             .object(FilePath())
         Definition()
             .constructor(FileModel.init(filePath:))
-        Definition()
-          .factory { _ in FileModel(path: “/“) }
     }
 }
 
-let context = ApplicationContext()
+let context = ObjectContext()
 context.register(configuration: MyConfiguration.self)
+context[FileModel.self]
 ```
 
-* Multiple object definition methods
-```swift
-Definition().object(FilePath())
-Definition().constructor(FilePath.init)
-Definition().factory { _ in FilePath() }
-Definition().factory(createFilePath())
+## Basic usage
 
-static func createFilePath(context: ObjectContext) -> FilePath { FilePath() }
-```
-
-* Define protocol alias for object
-```swift
-Definition()
-    .object(FileModel(path: "/") as FileModelProtocol)
-```
-
-* Define multiple protocol aliases for the object
-```swift
-Definition()
-    .protocol(FileManagerProtocol.self)
-    .alias(ImageManagerProtocol.self)
-    .alias(DirectoryManagerProtocol.self)
-    .object(FileManager())
-```
+> Note: For convenience, the registration of object definitions and the creation of context that appear in the following will be omitted. All definitions in your project must be registered before they can be resolved.
 
 * Use constructor for dependency injection
 ```swift
 Definition()
-    .constructor(FileModel.init(filePath:))
+    .protocol(FileViewControllerProtocol.self)
+    .constructor(FileViewController.init(fileManager:))
+context[FileViewControllerProtocol.self].fileManager
 ```
 
 * Use property for dependency injection
@@ -112,7 +104,8 @@ Definition()
 Definition()
     .protocol(FileViewControllerProtocol.self)
     .object(FileViewController())
-    .property(\.avatarFactory)
+    .property(\.fileManager)
+context[FileViewControllerProtocol.self].fileManager
 ```
 
 * Use setter for dependency injection
@@ -120,57 +113,62 @@ Definition()
 Definition()
     .protocol(FileViewControllerProtocol.self)
     .object(FileViewController())
-    .setter(FileViewController.setAvatarFactory)
+    .setter(FileViewController.setFileManager)
+context[FileViewControllerProtocol.self].fileManager
 ```
 
-* Use static factory for dependency injection
+* Use static factory for manual dependency injection
 ```swift
 Definition()
-    .factory(fileModel(context:filePath:))
-appContext[FileModelProtocol.self]
+    .factory(fileViewController(context:))
+context[FileViewControllerProtocol.self].fileManager
 
-static func fileModel2(context: ObjectContext, filePath: FilePath) -> FileModelProtocol {
-    FileModel(path: filePath.path, name: filePath.name)
+static func fileViewController(context: ObjectContext) -> FileViewControllerProtocol {
+    let fileVC = FileViewController()
+    fileVC.fileManager = context[FileManagerProtocol]
+    return fileVC
 }
 ```
-
-* Use a static factory for manual dependency injection
+The same as:
 ```swift
 Definition()
-    .factory { ctx in FileModel(filePath: ctx[FilePath.self]) as FileModelProtocol }
-appContext[FileModelProtocol.self]
+    .factory { context in 
+        let fileVC = FileViewController()
+        fileVC.fileManager = context[FileManagerProtocol]
+        return fileVC as FileViewControllerProtocol
+    }
 ```
 
 * Create objects with external parameters
 ```swift
 Definition()
-    .factory(fileModel(context:arg1:arg2:))
-appContext[FileModelProtocol.self, "/china/beijing", "family.png"]
+    .factory(fileModel(context:path:name:))
+context[FileModelProtocol.self, "/china/beijing", "family.png"]
 
-static func fileModel(context: ObjectContext, arg1: String, arg2: String) -> FileModelProtocol {
-    FileModel(path: arg1, name: arg2)
+static func fileModel(context: ObjectContext, path: String, name: String) -> FileModelProtocol {
+    FileModel(path: path, name: name)
 }
 ```
 
-For more usage scenarios, please refer to Netdisk Demo or related unit test cases, or contact us for help.
+For more information see [Basic usage](./CarbonCore/CarbonCore/CarbonCore.docc/Basic\ usage.md)
 
-## Unit Tests
+## Documentation
 
-1. Open Carbon.xcworkspace with Xcode
-2. Execute Command + U in Xcode
+The documentation of this project is written in [DocC](https://developer.apple.com/documentation/docc), please clone the repo and build the documentation yourself.
 
-## Discussion
+1. Clone this repo 
+2. Open Carbon.xcworkspace with Xcode
+3. Product > Build Documentation
 
-| Tool | Address | Description |
-| --- | --- | --- |
-| Infoflow | 5346856 | CarbonGraph users discussion group |
-| Email | carbon-core@baidu.com | CarbonGraph core contributors email group |
+For more information see Unit Test and Example
+
+## Contribution
+
+You are more than welcome to contribute code to the project，for more information see [Contribution](./CarbonCore/CarbonCore/CarbonCore.docc/Contribution.md)
 
 ## Credits
 
-The idea of using dependency injection to build loosely coupled projects is from [Spring](https://spring.io). The implementation of using generics to obtain method parameter types is from [Swinject](https://github.com/Swinject/Swinject).
-
-Thanks for the excellent ideas and implementation provided by the above framework.
+The idea of using dependency injection to build loosely coupled project comes from [Spring](https://spring.io). The ideas of using generics to implement factory injection comes from [Swinject](https://github.com/Swinject/Swinject). Thanks to these frameworks for providing these excellent ideas.
 
 ## License
 
