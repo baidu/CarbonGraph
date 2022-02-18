@@ -1,5 +1,5 @@
-#source 'https://github.com/CocoaPods/Specs.git'
-source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
+# source 'https://cdn.cocoapods.org/'
 
 platform :ios, '9.0'
 
@@ -9,11 +9,11 @@ use_modular_headers!
 
 target 'Netdisk' do
   
-#  pod 'CarbonCore', '~> 1.2.2'
-#  pod 'CarbonObjC', '~> 1.2.2'
+  pod 'CarbonCore', '~> 1.3.1'
+  pod 'CarbonObjC', '~> 1.3.1'
   
-  pod 'CarbonCore', :path => '../..'
-  pod 'CarbonObjC', :path => '../..'
+  # pod 'CarbonCore', :path => '../..'
+  # pod 'CarbonObjC', :path => '../..'
   
   pod 'AppDelegateModule', :path => '../AppDelegateModule'
   pod 'BasicModule', :path => '../BasicModule'
