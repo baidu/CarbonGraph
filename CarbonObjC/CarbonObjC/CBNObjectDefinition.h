@@ -83,13 +83,14 @@ typedef NSObject* _Nonnull(^CBNFactoryDefineCompleted)(CBNObjectContext *context
 
 @interface CBNAttributeDefinitionBuilder : CBNActionDefinitionBuilder
 
-/// Define object's scope is `CBNObjectScope.prototype`. Default scope.
+/// Set the local scope (life cycle) of the object
 @property (nonatomic, copy, readonly) CBNActionDefinitionBuilder *(^prototype)(void);
-/// Define object's scope is `CBNObjectScope.singleton`.
+/// Set the singleton scope (life cycle) of the object
 @property (nonatomic, copy, readonly) CBNActionDefinitionBuilder *(^singleton)(void);
-/// Define object's scope is `CBNObjectScope.singletonWeak`.
+/// Set the weak reference singleton scope (life cycle) of the object
 @property (nonatomic, copy, readonly) CBNActionDefinitionBuilder *(^singletonWeak)(void);
 
+/// Set the scope (life cycle) of the object
 - (CBNActionDefinitionBuilder *(^)(CBNObjectScope *scope))scope;
 
 @end
@@ -99,7 +100,7 @@ typedef NSObject* _Nonnull(^CBNFactoryDefineCompleted)(CBNObjectContext *context
 
 - (CBNAutowiredDefinitionBuilder *(^)(NSString *property))propertyName;
 
-/// Note: The propertiesName array will overwrite the previous propertyName, so multiple propertyNames or a single propertiesName array are usually used.
+/// Note: The propertiesName array will overwrite the previous propertyName, so when setting multiple properties, either use multiple propertyNames or a single propertiesName array.
 - (CBNAttributeDefinitionBuilder *(^)(NSArray<NSString *> *properties))propertiesName;
 
 @end
