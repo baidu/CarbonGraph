@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = 'CarbonCore'
-  spec.version      = '1.3.1'
+  spec.version      = '1.3.2'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.summary      = 'Swift dependency injection framework for iOS'
   spec.homepage     = 'https://github.com/baidu/CarbonGraph'
