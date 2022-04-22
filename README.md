@@ -164,12 +164,10 @@ For more information see Unit Test and Example
 
 ## Contribution
 
-You are more than welcome to contribute code to the project，for more information see [Contribution](./CarbonCore/CarbonCore/CarbonCore.docc/Contribution.md)
+You are more than welcome to contribute code to the project，for more information see [Contribution](./CarbonCore/CarbonCore/CarbonCore.docc/Contribution.md). You can also join the WeChat discussion group, check the QR code below.
 
-## Credits
-
-The idea of using dependency injection to build loosely coupled project comes from [Spring](https://spring.io). The ideas of using generics to implement factory injection comes from [Swinject](https://github.com/Swinject/Swinject). Thanks to these frameworks for providing these excellent ideas.
+<a href="https://weixin.qq.com/g/AQYAAMrdukzdvyo_JJrKIVjcJXhKFS2Of8v1P6K3bQIIwZ28E1BWAcsfbGWFKEHs"><img width="360" src="CarbonCore/CarbonCore/CarbonCore.docc/Resources/wechat_qr_code.jpg"></a>&nbsp;
 
 ## License
 
-CarbonGraph is released under the MIT license. See [LICENSE](https://console.cloud.baidu-int.com/devops/icode/repos/baidu/netdisk/ios-carbon-lib/blob/master:LICENSE) for details.
+CarbonGraph is released under the MIT license. See [LICENSE](./LICENSE) for details.

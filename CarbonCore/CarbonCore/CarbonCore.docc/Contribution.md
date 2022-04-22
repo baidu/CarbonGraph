@@ -20,5 +20,21 @@ The project is still in the early stage, and will build more dependency injectio
 
 | Tool | Address | Description |
 | --- | --- | --- |
-| [Infoflow](http://infoflow.baidu.com/) | 5346856 | CarbonGraph core contributors discussion group |
+| WeChat | Check the QR code below | CarbonGraph discussion group |
 | Email | carbon-core@baidu.com | CarbonGraph core contributors email group |
+
+<a href="https://weixin.qq.com/g/AQYAAMrdukzdvyo_JJrKIVjcJXhKFS2Of8v1P6K3bQIIwZ28E1BWAcsfbGWFKEHs"><img width="360" src="Resources/wechat_qr_code.jpg"></a>&nbsp;
+
+## Credits
+
+The idea of using dependency injection to build loosely coupled project comes from [Spring](https://spring.io). The ideas of using generics to implement factory injection comes from [Swinject](https://github.com/Swinject/Swinject). Thanks to these frameworks for providing these excellent ideas.
+
+### Contributors
+
+Thanks to everyone who have already contributed to CarbonGraph!
+
+<a href="https://github.com/xiaofei86"><img width="40" height="40" src="https://avatars.githubusercontent.com/u/8192632"></a>&nbsp;
+<a href="https://github.com/lqwang521"><img width="40" height="40" src="https://avatars.githubusercontent.com/u/12582303"></a>&nbsp;
+<a href="https://github.com/aipinn"><img width="40" height="40" src="https://avatars.githubusercontent.com/u/16027318"></a>&nbsp;
+<a href="https://github.com/stronggbbz"><img width="40" height="40" src="https://avatars.githubusercontent.com/u/4352237"></a>&nbsp;
+

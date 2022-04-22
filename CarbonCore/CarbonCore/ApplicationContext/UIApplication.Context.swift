@@ -40,6 +40,9 @@ extension UIApplication {
     ///
     /// If you access this property and its value is currently nil, the application automatically calls the
     /// ``makeApplicationContext()`` method and returns the resulting context.
+    ///
+    /// - Note: It's not thread-safe, do not use it in a multi-threaded environment.
+    /// Use ``appContext`` instead.
     @objc public var context: ApplicationContext {
         return type(of: self).context
     }
