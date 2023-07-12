@@ -12,7 +12,16 @@ You are more than welcome to contribute code to the project. You can contribute 
 > 1. Open Carbon.xcworkspace with Xcode
 > 2. Execute Command + U under CarbonCore and CarbonObjC Scheme respectively
 
-The project administrator will merge the stable-state feature branch into develop at the appropriate time, delete the feature branch and create a new release branch besed on develop. Projects that need early access to new features can always use the code from the release branch. After a release is done on at least one project, the release branch will merge back into develop and main branch, and the new version will be released on the main branch.
+The project administrator will merge the stable-state feature branch into the develop branch at the appropriate time, delete the feature branch, and create a new release branch based on develop. Projects that require early access to new features can always utilize the code from the release branch. Once a release is completed for at least one project, the release branch will be merged back into the develop and main branches, and the new version will be released on the main branch.
+
+Release commands reference:
+```
+pod lib lint CarbonCore.podspec
+git tag x.x.x
+git push origin x.x.x
+pod spec lint CarbonCore.podspec
+pod trunk push CarbonCore.podspec
+```
 
 ## Join us
 

@@ -10,7 +10,6 @@
 
 import Foundation
 
-#if swift(>=5.4)
 /// Result builder for object context configuration
 @resultBuilder public struct ConfigurationBuilder {
     public static func buildBlock(_ components: [DefinitionBuilder]...) -> [DefinitionBuilder] {
@@ -41,13 +40,6 @@ import Foundation
         return components.flatMap { $0 }
     }
 }
-#else
-@_functionBuilder public struct ConfigurationBuilder {
-    public static func buildBlock(_ components: DefinitionBuilder...) -> [DefinitionBuilder] {
-        return components
-    }
-}
-#endif
 
 /// Object context configuration protocol
 ///

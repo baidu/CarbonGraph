@@ -35,13 +35,14 @@ The CarbonGraph project contains 2 frameworks:
 | CarbonCore Stable Version | Required iOS Version | Required Swift Version |
 | --- | --- | --- |
 | 1.2.2 - 1.3.2 | 9.0 + | 5.2 + |
+| 1.3.3 | 9.0 + | 5.5 + |
 
 * CarbonObjC Version Compatibility
 
 | CarbonObjC Version | CarbonCore Compatible Version |
 | --- | --- |
 | 1.2.2 | 1.2.2 |
-| 1.3.1 | 1.3.1 - 1.3.2 |
+| 1.3.1 | 1.3.1 - 1.3.3 |
 
 For more information see [Compatibility](./CarbonCore/CarbonCore/CarbonCore.docc/Compatibility.md)
 
@@ -49,7 +50,7 @@ For more information see [Compatibility](./CarbonCore/CarbonCore/CarbonCore.docc
 
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate CarbonGraph into your Xcode project using CocoaPods, specify it in your Podfile:
 
-> pod 'CarbonCore', '~> 1.3.1'
+> pod 'CarbonCore', '~> 1.3.3'
 
 ## Quick Start
 
