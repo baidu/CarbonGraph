@@ -33,14 +33,19 @@ class ObjectDefinition {
     var properties: [(ObjectContext, AnyObject) -> Void]?
     var setters: [(ObjectContext, Any) -> Void]?
     
-    var scope: ObjectScope?
+    var scope: ObjectScope = .default {
+        didSet {
+            storage = scope.makeStorage()
+        }
+    }
     
-    lazy var storage: ObjectStorage = { [unowned self] in
-        (self.scope ?? .default).makeStorage()
-    }()
+    var storage: ObjectStorage
     
     var actions: [(ObjectContext, Any) -> Void]?
     
+    init() {
+        storage = self.scope.makeStorage()
+    }
 }
 
 extension ObjectDefinition: CustomStringConvertible {
@@ -64,9 +69,7 @@ extension ObjectDefinition: CustomStringConvertible {
         if let name = name {
             des += "name: \(name), "
         }
-        if let scope = scope {
-            des += "scope: \(scope)"
-        }
+        des += "scope: \(scope)"
         return des
     }
 }

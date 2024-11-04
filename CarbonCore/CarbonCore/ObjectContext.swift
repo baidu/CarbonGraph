@@ -68,10 +68,6 @@ import Foundation
     /// - Parameter builder: Object definition builder
     @objc public func register(builder: DefinitionBuilder) {
         let def = builder.definition
-        if def.scope == nil {
-            def.scope = defaultScope
-        }
-        
         func setKeys(withArgs: Bool) {
             var keys = [ObjectKey]()
             if let mianProtocol = def.protocol {
@@ -323,15 +319,12 @@ extension ObjectContext {
                 } else {
                     
                 }
-                if let scope = value.scope {
-                    des += ", scope: \(scope.name)\n\t"
-                }
+                des += ", scope: \(value.scope.name)\n\t"
             }
         lock.unlock()
         _ = des.popLast()
         _ = des.popLast()
         des += "\n}"
-        lock.unlock()
         return des
     }
 }
